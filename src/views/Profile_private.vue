@@ -15,11 +15,12 @@
           <!-- SIDEBAR USER TITLE -->
           <div class="profile-usertitle">
             <h2 class="profile-name">
-              Jason Davis
+              ชนัฐฎา รูปงาม
             </h2>
-            <h4 class="profile-faculty">
-              Developer
-            </h4>
+            <h5 class="profile-faculty">
+              คณะวิทยาศาสตร์<br>
+              <small>วิทยาการคอมพิวเตอร์</small>
+            </h5>
           </div>
           <!-- END SIDEBAR USER TITLE -->
           <!-- SIDEBAR BUTTONS -->
@@ -38,8 +39,9 @@
               role="tab"
               aria-controls="v-pills-home"
               aria-selected="true"
-              ><i class="fa fa-address-card-o" aria-hidden="true"></i
-              ><span>ประวัตินักศึกษา</span></a
+              >
+              <i class="fa fa-address-card-o" aria-hidden="true"></i>
+              <span>ประวัตินักศึกษา</span></a
             >
             <a
               class="menu-item"
@@ -50,7 +52,7 @@
               aria-controls="v-pills-profile"
               aria-selected="false"
               ><i class="fa fa-graduation-cap" aria-hidden="true"></i
-                ><span>ผลการเรียน</span></a
+              ><span>ผลการเรียน</span></a
             >
             <a
               class="menu-item"
@@ -61,7 +63,7 @@
               aria-controls="v-pills-messages"
               aria-selected="false"
               ><i class="fa fa-table" aria-hidden="true"></i
-                ><span>ตารางเรียน</span></a
+              ><span>ตารางเรียน</span></a
             >
             <a
               class="menu-item"
@@ -72,7 +74,7 @@
               aria-controls="v-pills-settings"
               aria-selected="false"
               ><i class="fa fa-file-text-o" aria-hidden="true"></i
-                ><span>ตารางสอบ</span></a
+              ><span>ตารางสอบ</span></a
             >
           </div>
           <!-- END MENU -->
@@ -80,22 +82,20 @@
       </div>
       <div class="col-md-9">
         <div class="tab-content" id="v-pills-tabContent">
-          <div
+          <ProfileData
             class="tab-pane fade show active"
             id="v-pills-home"
             role="tabpanel"
             aria-labelledby="v-pills-home-tab"
           >
-            ...1
-          </div>
-          <div
+          </ProfileData>
+          <StudyResult
             class="tab-pane fade"
             id="v-pills-profile"
             role="tabpanel"
             aria-labelledby="v-pills-profile-tab"
           >
-            ...2
-          </div>
+          </StudyResult>
           <div
             class="tab-pane fade"
             id="v-pills-messages"
@@ -104,14 +104,14 @@
           >
             ...3
           </div>
-          <div
+          <MidtermFinal
             class="tab-pane fade"
             id="v-pills-settings"
             role="tabpanel"
             aria-labelledby="v-pills-settings-tab"
           >
             ...4
-          </div>
+          </MidtermFinal>
         </div>
       </div>
     </div>
@@ -119,10 +119,19 @@
 </template>
 
 <script>
+import ProfileData from "../components/Profile_data.vue";
+import StudyResult from "../components/StudyResult.vue";
+import MidtermFinal from "../components/CalendarEvents.vue"
+
 export default {
   name: "profile_user",
+  components: {
+    ProfileData,
+    StudyResult,
+    MidtermFinal,
+  },
   methods: {
-  }
+  },
 };
 </script>
 
@@ -189,7 +198,7 @@ a.menu-item:hover {
   color: #26384e;
 }
 a.menu-item:focus {
-    color: #26384e;
+  color: #26384e;
 }
 i.fa {
   padding-right: 6px;
