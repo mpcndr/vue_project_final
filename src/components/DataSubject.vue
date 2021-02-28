@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="width: 100vw; height:8vh"></div>
+    <div style="width: 100vw;"></div>
     <div id="myDiagramDiv" style="width: 100vw; height:62vh;"></div>
     <div id="myAsignatura" style="width: 100vw; height:29.5vh;"></div>
   </div>
@@ -59,260 +59,260 @@ export default {
           key: "511100",
           name: "Precal",
           group: 11,
-          color: "#f08a5d",
+          grade: 1,
         },
         {
           key: "511108",
           name: "Cal I",
           group: 11,
-          color: "#f08a5d",
+          grade: -1,
         },
         {
           key: "081102",
           name: "English I",
           group: 11,
-          color: "#E74C3C",
+          grade: 1,
         },
         {
           key: "514107",
           name: "Physic",
           group: 11,
-          color: "#838383",
+          grade: 1,
         },
         {
           key: "517121",
           name: "Com I",
           group: 11,
-          color: "#0d7377",
+          grade: -1,
         },
         {
           key: "520101",
           name: "ComFound",
           group: 11,
-          color: "#b83b5e",
+          grade: 1,
         },
         /*------1 term 2 ------*/
         {
           key: "081103",
           name: "English II",
           group: 12,
-          color: "#E74C3C",
+          grade: 1,
         },
         {
           key: "511109",
           name: "Cal II",
           group: 12,
-          color: "#f08a5d",
+          grade: 0,
         },
         {
           key: "515201",
           name: "Static",
           group: 12,
-          color: "darkorange",
+          grade: 1,
         },
         {
           key: "517122",
           name: "Com II",
           group: 12,
-          color: "#0d7377",
+          grade: 0
         },
         {
           key: "01",
           name: "วิชาบังคับเลือกในหมวดศึกษาทั่วไป",
           group: 12,
-          color: "darkorange",
+          grade: 1,
         },
         /*------2 term 1 ------*/
         {
           key: "510201",
           name: "English for Science",
           group: 21,
-          color: "green",
+          grade: 0,
         },
         {
           key: "515232",
           name: "Prop",
           group: 21,
-          color: "darkorange",
+          grade: 0,
         },
         {
           key: "517211",
           name: "Data Struce",
           group: 21,
-          color: "#0d7377",
+          grade: 0,
         },
         {
           key: "517212",
           name: "Digital",
           group: 21,
-          color: "#0d7377",
+          grade: 0,
         },
         {
           key: "520213",
           name: "Discreat",
           group: 21,
-          color: "#b83b5e",
+          grade: 0,
         },
         {
           key: "520215",
           name: "Big Data",
           group: 21,
-          color: "#b83b5e",
+          grade: 0,
         },
         /*------2 term 2 ------*/
         {
           key: "510202",
           name: "English",
           group: 22,
-          color: "purple",
+          grade: 0,
         },
         {
           key: "511242",
           name: "Linear",
           group: 22,
-          color: "#f08a5d",
+          grade: 0,
         },
         {
           key: "517221",
           name: "OOSD",
           group: 22,
-          color: "#0d7377",
+          grade: 0,
         },
         {
           key: "517222",
           name: "ComOrganiz",
           group: 22,
-          color: "#0d7377",
+          grade: 0,
         },
         {
           key: "520221",
           name: "DataBase",
           group: 22,
-          color: "#b83b5e",
+          grade: 0,
         },
         {
           key: "517241",
           name: "DataCom",
           group: 22,
-          color: "#0d7377",
+          grade: 0,
         },
         /*------3 term 1 ------*/
         {
           key: "081101",
           name: "Thai",
           group: 31,
-          color: "#E74C3C",
+          grade: 0,
         },
         {
           key: "517311",
           name: "Algorithm",
           group: 31,
-          color: "#0d7377",
+          grade: 0,
         },
         {
           key: "517312",
           name: "OS",
           group: 31,
-          color: "#0d7377",
+          grade: 0,
         },
         {
           key: "517321",
           name: "PL",
           group: 31,
-          color: "#0d7377",
+          grade: 0,
         },
         {
           key: "520212",
           name: "Laws",
           group: 31,
-          color: "#b83b5e",
+          grade: 0,
         },
         {
           key: "520361",
           name: "SA",
           group: 31,
-          color: "#b83b5e",
+          grade: 0,
         },
         {
           key: "02",
           name: "วิชาเลือกในหมวดวิชาเฉพาะ",
           group: 31,
-          color: "purple",
+          grade: 0,
         },
         /*------3 term 2 ------*/
         {
           key: "517313",
           name: "Theory",
           group: 32,
-          color: "#0d7377",
+          grade: 0,
         },
         {
           key: "517391",
           name: "RM",
           group: 32,
-          color: "#0d7377",
+          grade: 0
         },
         {
           key: "520351",
           name: "HCI",
           group: 32,
-          color: "#b83b5e",
+          grade: 0
         },
         {
           key: "520362",
           name: "SE",
           group: 32,
-          color: "#b83b5e",
+          grade: 0
         },
         {
           key: "02",
           name: "วิชาเลือกในหมวดวิชาเฉพาะ",
           group: 32,
-          color: "purple",
+          grade: 0
         },
         {
           key: "03",
           name: "วิชาเลือกในรายวิชาศึกษาทั่วไปที่กําหนดโดยคณะวิทยาศาสตร์",
           group: 32,
-          color: "purple",
+          grade: 0
         },
         /*------4 term 1 ------*/
         {
           key: "517493",
           name: "Project I",
           group: 41,
-          color: "#0d7377",
+          grade: 0
         },
         {
           key: "02",
           name: "วิชาเลือกในหมวดวิชาเฉพาะ",
           group: 41,
-          color: "purple",
+          grade: 0
         },
         {
           key: "01",
           name: "วิชาบังคับเลือกในหมวดวิชาศึกษาทั่วไป",
           group: 41,
-          color: "purple",
+          grade: 0
         },
         {
           key: "04",
           name: "วิชาเลือกในหมวดวิชาเลือกเสรี",
           group: 41,
-          color: "purple",
+          grade: 0
         },
         /*------4 term 2 ------*/
         {
           key: "517494",
           name: "Project II",
           group: 42,
-          color: "#0d7377",
+          grade: 0
         },
         {
           key: "04",
           name: "วิชาเลือกในหมวดวิชาเลือกเสรี",
           group: 42,
-          color: "purple",
+          grade: 0
         },
       ],
       linkDataArray: [
@@ -369,7 +369,7 @@ export default {
       var myAsignatura = $(go.Diagram, "myAsignatura", {
         initialAutoScale: go.Diagram.UniformToFill,
         initialContentAlignment: go.Spot.Center,
-        isReadOnly: true,
+        isReadOnly: false,
         layout: $(go.TreeLayout, {
           angle: 0,
           //sorting: go.TreeLayout.SortingAscending
@@ -401,7 +401,7 @@ export default {
         $(go.Shape, "Ellipse", {
           fill: "white",
           stroke: "lightgrey",
-          strokeWidth: 4,
+          strokeWidth: 2,
         })
       );
 
@@ -425,31 +425,30 @@ export default {
         )
       );
 
-      myDiagram.isReadOnly = true;
-
+      myDiagram.isReadOnly = false;
+// groupTemplate data background
       myDiagram.groupTemplate = $(
         go.Group,
         "Auto",
         {
           layout: $(go.LayeredDigraphLayout, {
             direction: 0,
-            columnSpacing: 10,
+            columnSpacing: 8,
           }),
         },
-        $(go.Shape, "Rectangle", { fill: "#fff9f1", stroke: "#000" }),
+        $(go.Shape, "RoundedRectangle", { parameter1: 10, fill: "#364B2F", stroke: "#364B2F" }),
         $(
           go.Panel,
           "Table",
-          { margin: 2 },
-          $(go.RowColumnDefinition, { row: 0, background: "white" }),
-          $("SubGraphExpanderButton", { row: 0, column: 0, margin: 5 }),
+          { margin: 0 },
+          $(go.RowColumnDefinition, { row: 0, background: "#none" }),
           $(
             go.TextBlock,
             {
               row: 0,
               column: 1,
-              font: "14px Kanit",
-              stroke: "darkorange",
+              font: "20px Kanit",
+              stroke: "#fff",
               textAlign: "center",
               stretch: go.GraphObject.Horizontal,
             },
@@ -459,19 +458,18 @@ export default {
             go.Placeholder,
             { row: 1, columnSpan: 2, padding: 5, alignment: go.Spot.TopLeft },
             new go.Binding("padding", "isSubGraphExpanded", function(exp) {
-              return exp ? 2 : 0;
+              return exp ? 12 : 0;
             }).ofObject()
           )
         )
       );
 
-      myDiagram.layout = $(go.TreeLayout, { isRealtime: true });
+      myDiagram.layout = $(go.LayeredDigraphLayout, { isRealtime: true });
 
       myDiagram.nodeTemplate = $(
         go.Node,
         "Auto",
         {
-          desiredSize: new go.Size(100, 40),
           fromSpot: go.Spot.Right,
           toSpot: go.Spot.Left,
         } /*new go.Binding("location", "loc", go.Point.parse),*/,
@@ -484,9 +482,9 @@ export default {
         $(
           go.TextBlock,
           { margin: 5 },
-          new go.Binding("stroke", "color", function(c) {
-            return go.Brush.isDark(c) ? "white" : "black";
-          }),
+          // new go.Binding("stroke", "color", function(c) {
+          //   return go.Brush.isDark(c) ? "white" : "black";
+          // }),
           new go.Binding("text", "key")
         )
       );
@@ -525,7 +523,7 @@ export default {
         $(
           go.Shape,
           "RoundedRectangle",
-          new go.Binding("fill", "color"),
+          new go.Binding("fill", "grade", checkSubject),
           new go.Binding("stroke", "isHighlighted", function(h) {
             return h ? "black" : "grey";
           }).ofObject(),
@@ -544,19 +542,19 @@ export default {
               "RoundedRectangle",
               {
                 fill: null,
-                stroke: "black" /*dimgrey,dodgerblue*/,
-                strokeWidth: 2,
+                stroke: "#FF0000" /*dimgrey,dodgerblue*/,
+                strokeWidth: 4,
               }
               //new go.Binding("stroke", "color")
             ),
-            $(go.Placeholder, { padding: -4 })
+            $(go.Placeholder, { padding: -2 })
           ),
         },
         $(
           go.TextBlock,
           "Default Text",
           {
-            margin: 4,
+            margin: 6,
             font: "14px Kanit",
             stroke: "white",
             isMultiline: false,
@@ -583,43 +581,28 @@ export default {
           },
           routing: go.Link.AvoidsNodes /*Normal*/,
           selectable: true,
-          corner: 10,
+          corner: 8,
           //relinkableFrom: true,
           //relinkableTo: true,
           curve: go.Link.JumpGap,
         },
+        //link node
         $(
           go.Shape,
           new go.Binding("stroke", "isHighlighted", function(h) {
-            return h ? "black" : "grey";
+            return h ? "#FF0000" : "#F1C40F";
+            // color with stroke
           }).ofObject(),
           new go.Binding("strokeWidth", "isHighlighted", function(h) {
-            return h ? 4 : 2;
+            return h ? 3 : 2;
+            //link stroke highlight : not hightlight
           }).ofObject(),
           //{ stroke: "silver", strokeWidth: 2 }
           new go.Binding("strokeDashArray", "isHighlighted", function(h) {
-            return h ? [10, 6] : [0, 0];
+            return h ? [0, 0] : [0, 0];
+            // link hightlight แบบเส้นประ [ขนาด : ระยะห่าง]
           }).ofObject(),
           { name: "PIPE", strokeCap: "round" }
-        ),
-        $(
-          go.Shape,
-          {
-            toArrow:
-              "Triangle" /*Standard,Boomerang,Block,Circle,Diamond,Fork*/,
-            //fill: "grey",
-            //stroke: "grey",
-            strokeWidth: 2,
-          },
-          new go.Binding("fill", "isHighlighted", function(h) {
-            return h ? "black" : "grey";
-          }).ofObject(),
-          new go.Binding("stroke", "isHighlighted", function(h) {
-            return h ? "black" : "grey";
-          }).ofObject(),
-          new go.Binding("strokeWidth", "isHighlighted", function(h) {
-            return h ? 4 : 2;
-          }).ofObject()
         ),
         {
           selectionAdornmentTemplate: $(go.Adornment, "Auto"),
@@ -649,6 +632,16 @@ export default {
         if (node0 !== null) node0.isSelected = true;
         showLocalOnFullClick();
       });
+
+      function checkSubject(grade) {
+        if(grade == 1) {
+          return "#2B9E94"
+        }else if(grade == -1) {
+          return "#DE526B"
+        }else {
+          return "#868686"
+        }
+      }
 
       function showLocalOnFullClick() {
         var node = myDiagram.selection.first();

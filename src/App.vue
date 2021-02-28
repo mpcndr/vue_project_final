@@ -12,14 +12,19 @@
           aria-label="Toggle navigation"
           aria-controls="#navbarResponsive"
         >
-          <a id="icon-menu" href="javascript:void(0)" aria-hidden="true"><i class="fa fa-bars" aria-hidden="true"></i></a>
+          <a id="icon-menu" href="javascript:void(0)" aria-hidden="true"
+            ><i class="fa fa-bars" aria-hidden="true"></i
+          ></a>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul id="ul-underline" class="navbar-nav ml-auto">
             <router-link to="/" id="text-underline" class="nav-link active"
               >หน้าแรก</router-link
             >
-            <router-link to="/profile" id="text-underline" class="nav-link"
+            <router-link
+              to="/about_subject"
+              id="text-underline"
+              class="nav-link"
               >วิชาเลือก</router-link
             >
             <router-link
@@ -35,70 +40,32 @@
               
             </span> -->
             <!-- <router-link to="/login" id="text-underline" class="nav-link">เข้าสู่ระบบ</router-link> -->
-            <button
+            <!-- <button
               type="button"
               class="btn btn-danger"
               data-mdb-toggle="modal"
               data-mdb-target="#login_id"
             >
-              เข้าสู่ระบบ
-            </button>
-            <div
-              class="modal fade"
-              id="login_id"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      New message
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-mdb-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label"
-                          >Recipient:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="recipient-name"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="message-text" class="col-form-label"
-                          >Message:</label
-                        >
-                        <textarea
-                          class="form-control"
-                          id="message-text"
-                        ></textarea>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-mdb-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                      Send message
-                    </button>
-                  </div>
-                </div>
+            <router-link to="/profile" style="text-decoration: none; color: #fff">เข้าสู่ระบบ</router-link>
+              
+            </button> -->
+
+            <div class="dropdown show">
+              <a
+                class="btn btn-danger dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                ชนัฐฎา รูปงาม
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item"><router-link to="/profile" style="text-decoration: none; color: #000">ข้อมูลส่วนตัว</router-link></a>
+                <a class="dropdown-item"><router-link to="/profile" style="text-decoration: none; color: #000">ออกจากระบบ</router-link></a>
               </div>
             </div>
           </ul>

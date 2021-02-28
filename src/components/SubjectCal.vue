@@ -12,158 +12,240 @@ export default {
   data() {
     return {
       nodeSubject: [
-        { key: 1, text: "Alpha" },
-        { key: 2, text: "GROUP", isGroup: true },
-        { key: 3, text: "Beta", group: 2 },
-        { key: 4, text: "Gamma", group: 2 },
-        { key: 5, text: "Delta" },
-        // {
-        //   key: 0,
-        //   text: "คำนวณหลักสูตร",
-        //   isGroup: true,
-        // },
-        // {
-        //   key: 1.1,
-        //   text: "1 term 1",
-        //   isGroup: true,
-        //   group: 0,
-        //   color: "#000",
-        // },
-        // {
-        //   key: 11,
-        //   items: [
-        //     { text: "english for everyday use", grade: "1" },
-        //     { text: "health edu in the elementary school", grade: "1" },
-        //     { text: "precalculus", grade: "1" },
-        //     { text: "calculus for com sci 1", grade: "1" },
-        //     { text: "fundamental physics", grade: "1" },
-        //     { text: "com programming skill 1", grade: "1" },
-        //     { text: "foundation of com and infor", grade: "1" },
-        //   ],
-        //   group: 1.1,
-        // },
-        // {
-        //   key: 12,
-        //   items: [
-        //     { text: "english skills development", grade: "1" },
-        //     { text: "sport edu", grade: "1" },
-        //     { text: "earth&astronomy", grade: "1" },
-        //     { text: "creative su", grade: "1" },
-        //     { text: "calculus for com sci 2", grade: "1" },
-        //     { text: "elementary statistics", grade: "1" },
-        //     { text: "com programming skill 2", grade: "-1" },
-        //   ],
-        // },
-        // {
-        //   key: 13,
-        //   items: [{ text: "com programming skill 2", grade: "1" }],
-        // },
-        // {
-        //   key: 21,
-        //   items: [
-        //     { text: "recreation program in elementary school", grade: "1" },
-        //     { text: "scientific eng", grade: "1" },
-        //     { text: "probability for com sci", grade: "1" },
-        //     { text: "data structures", grade: "-1" },
-        //     { text: "digital logic design", grade: "1" },
-        //     { text: "discrete computational structures", grade: "-1" },
-        //     {
-        //       text: "programming statistical learning for big data",
-        //       grade: "1",
-        //     },
-        //   ],
-        // },
-        // {
-        //   key: 22,
-        //   items: [
-        //     { text: "communicative eng", grade: "1" },
-        //     { text: "data structures", grade: "1" },
-        //     { text: "com organization&architecture", grade: "1" },
-        //     { text: "data communications&com networks", grade: "1" },
-        //     { text: "database systems", grade: "1" },
-        //   ],
-        // },
-        // {
-        //   key: 31,
-        //   items: [
-        //     { text: "thai for communication", grade: "1" },
-        //     { text: "discrete computational structures", grade: "1" },
-        //     { text: "algorithm analysis&design", grade: "1" },
-        //     { text: "operating systems", grade: "1" },
-        //     { text: "mobile application dev", grade: "1" },
-        //     { text: "laws&ethics in infor technology", grade: "1" },
-        //     { text: "system analysis&design", grade: "1" },
-        //   ],
-        // },
-        // {
-        //   key: 32,
-        //   items: [
-        //     { text: "linear algebra with applications", grade: "1" },
-        //     { text: "oblect-oriented software dev", grade: "1" },
-        //     { text: "theory of computation", grade: "1" },
-        //     { text: "research methods", grade: "1" },
-        //     { text: "selected topics in com sci VI", grade: "1" },
-        //     { text: "white internet", grade: "1" },
-        //     { text: "software engineering", grade: "1" },
-        //     { text: "infomation storage&retrieval", grade: "1" },
-        //   ],
-        // },
-        // {
-        //   key: 41,
-        //   items: [
-        //     { text: "com programming skill 2", grade: "1" },
-        //     { text: "principles of programming languages", grade: "1" },
-        //     {
-        //       text: "internet&world wide web technology&progamming",
-        //       grade: "1",
-        //     },
-        //     { text: "innovative startup entrepreneurship for sci", grade: "1" },
-        //   ],
-        // },
-        // {
-        //   key: 42,
-        //   items: [
-        //     { text: "electives", grade: "0" },
-        //     { text: "research project 1", grade: "0" },
-        //     { text: "human com interaction&interface design", grade: "0" },
-        //   ],
-        // },
-        // {
-        //   key: 43,
-        //   items: [{ text: "research project 2", grade: "0" }],
-        // },
+        { key: 1, isGroup: true, text: "ปีการศึกษาปีที่ 1", horiz: true },
+        { key: 2, isGroup: true, text: "ปีการศึกษาปีที่ 2", horiz: true },
+        { key: 3, isGroup: true, text: "ปีการศึกษาปีที่ 3", horiz: true },
+        { key: 4, isGroup: true, text: "ปีการศึกษาปีที่ 4", horiz: true },
+        { key: 11, isGroup: true, text: "เทอม1", group: 1 },
+        { key: 12, isGroup: true, text: "เทอม2", group: 1 },
+        { key: 21, isGroup: true, text: "เทอม1", group: 2 },
+        { key: 22, isGroup: true, text: "เทอม2", group: 2 },
+        { key: 31, isGroup: true, text: "เทอม1", group: 3 },
+        { key: 32, isGroup: true, text: "เทอม2", group: 3 },
+        { key: 41, isGroup: true, text: "เทอม1", group: 4 },
+        { key: 42, isGroup: true, text: "เทอม2", group: 4 },
+        { key: 43, isGroup: true, text: "เทอม3", group: 4 },
+        { text: "511100 precalculus", group: 11, check: 1 },
+        { text: "511108 calculus 1", group: 11, check: -1 },
+        { text: "081102 english", group: 11, check: 1 },
+        { text: "471302 health edu", group: 11, check: 1 },
+        { text: "514107 fun physics", group: 11, check: 1 },
+        { text: "517121 com 1", group: 11, check: -1 },
+        { text: "520101 foundation of com", group: 11, check: 1 },
+
+        { text: "081103 english", group: 12, check: 1 },
+        { text: "083104 sport edu", group: 12, check: 1 },
+        { text: "084108 earth&astronomy", group: 12, check: 1 },
+        { text: "085101 creative su", group: 12, check: 1 },
+        { text: "515201 elementary statistics", group: 12, check: 1 },
+
+        { text: "517121 com 1", group: 21, check: 0 },
+        { text: "511108 cal 1", group: 21, check: 0 },
+        { text: "510201 english for science", group: 21, check: 0 },
+        { text: "517212 digital logic design", group: 21, check: 0 },
+
+        { text: "510202 communicative eng", group: 22, check: 0 },
+        { text: "517122 com 2", group: 22, check: 0 },
+        { text: "517222 com organization&architecture", group: 22, check: 0 },
+        { text: "511109 cal 2", group: 22, check: 0 },
+        { text: "511242 linear", group: 22, check: 0 },
+
+        { text: "081101 thai for communication", group: 31, check: 0 },
+        { text: "517213 discrete", group: 31, check: 0 },
+        { text: "517211 data structure", group: 31, check: 0 },
+        { text: "517312 operating systems", group: 31, check: 0 },
+        { text: "520212 laws&ethics", group: 31, check: 0 },
+        { text: "520215 big data", group: 31, check: 0 },
+
+        { text: "520221 data base", group: 32, check: 0 },
+        { text: "517221 OOSD", group: 32, check: 0 },
+        { text: "517313 theory", group: 32, check: 0 },
+        { text: "517391 RM", group: 32, check: 0 },
+        { text: "520351 HCI", group: 32, check: 0 },
+
+        { text: "517311 Algorithm", group: 41, check: 0 },
+        { text: "517321 PL", group: 41, check: 0 },
+        { text: "520361 system analysis and design", group: 41, check: 0 },
+        { text: "515232 probability", group: 41, check: 0 },
+
+        { text: "516190 Household", group: 42, check: 0 },
+        { text: "517493 research project 1", group: 42, check: 0 },
+        { text: "520362 SE", group: 42, check: 0 },
+
+        {
+          text: "517494 research project 2",
+          group: 43, check: 0
+        },
       ],
       subjects: [],
-      
     };
   },
   methods: {
     Diagram: function() {
       var $ = go.GraphObject.make;
       var myDiagram = $(go.Diagram, "mySubcal", {
-        initialContentAlignment: go.Spot.Center,
+        // when a drag-drop occurs in the Diagram's background, make it a top-level node
+        // Diagram has simple horizontal layout
+        layout: $(go.GridLayout, {
+          wrappingWidth: Infinity,
+          alignment: go.GridLayout.Position,
+          cellSize: new go.Size(1, 1),
+        }),
+        "commandHandler.archetypeGroupData": {
+          isGroup: true,
+          text: "Group",
+          horiz: false,
+        },
+        "undoManager.isEnabled": true,
       });
+
+      function makeLayout(horiz) {
+        // a Binding conversion function
+        if (horiz) {
+          return $(go.GridLayout, {
+            wrappingWidth: Infinity,
+            alignment: go.GridLayout.Position,
+            cellSize: new go.Size(1, 1),
+            spacing: new go.Size(4, 4),
+          });
+        } else {
+          return $(go.GridLayout, {
+            wrappingColumn: 1,
+            alignment: go.GridLayout.Position,
+            cellSize: new go.Size(1, 1),
+            spacing: new go.Size(4, 4),
+          });
+        }
+      }
+      function defaultColor(horiz) {
+        // a Binding conversion function
+        return horiz ? "#da694b" : "#254361";
+      }
+
+      function defaultFont(horiz) {
+        // a Binding conversion function
+        return horiz ? "20px Kanit" : "18px Kanit";
+      }
+
+      function checkSubject(check) {
+        if(check === 1){
+          return "#52DEC1";
+        }
+        else if(check === -1) {
+          return "#DE526B";
+        }else {
+          return "#BDC3C7";//"#C39BD3";
+        }
+      }
+
+      function highlightGroup(e, grp, show) {
+        if (!grp) return;
+        e.handled = true;
+        if (show) {
+          // cannot depend on the grp.diagram.selection in the case of external drag-and-drops;
+          // instead depend on the DraggingTool.draggedParts or .copiedParts
+          var tool = grp.diagram.toolManager.draggingTool;
+          var map = tool.draggedParts || tool.copiedParts; // this is a Map
+          // now we can check to see if the Group will accept membership of the dragged Parts
+          if (grp.canAddMembers(map.toKeySet())) {
+            grp.isHighlighted = true;
+            return;
+          }
+        }
+        grp.isHighlighted = false;
+      }
 
       myDiagram.groupTemplate = $(
         go.Group,
         "Auto",
-        $(go.Shape, "Rectangle", { fill: "gold" }),
+        {
+          background: "transparent",
+          ungroupable: true,
+          // highlight when dragging into the Group
+          mouseDragEnter: function(e, grp) {
+            highlightGroup(e, grp, true);
+          },
+          mouseDragLeave: function(e, grp) {
+            highlightGroup(e, grp, false);
+          },
+          computesBoundsAfterDrag: true,
+          // when the selection is dropped into a Group, add the selected Parts into that Group;
+          // if it fails, cancel the tool, rolling back any changes
+
+          handlesDragDropForMembers: true, // don't need to define handlers on member Nodes and Links
+          // Groups containing Groups lay out their members horizontally
+          layout: makeLayout(false),
+        },
+        new go.Binding("layout", "horiz", makeLayout),
+        new go.Binding("background", "isHighlighted", function(h) {
+          return h ? "rgba(255,0,0,0.2)" : "transparent";
+        }).ofObject(),
+        $(
+          go.Shape,
+          "RoundedRectangle",
+          { fill: null, stroke: defaultColor(false), strokeWidth: 2 },
+          new go.Binding("stroke", "horiz", defaultColor),
+          new go.Binding("stroke", "color")
+        ),
         $(
           go.Panel,
-          "Vertical",
-          { margin: 5, defaultAlignment: go.Spot.Left },
+          "Vertical", // title above Placeholder
           $(
             go.Panel,
-            "Horizontal",
-            $("SubGraphExpanderButton", { margin: new go.Margin(0, 3, 5, 0) }),
-            $(go.TextBlock, "Group")
-          ),
-          $(go.Placeholder)
+            "Horizontal", // button next to TextBlock
+            {
+              stretch: go.GraphObject.Horizontal,
+              background: defaultColor(false),
+            },
+            new go.Binding("background", "horiz", defaultColor),
+            new go.Binding("background", "color"),
+            $("SubGraphExpanderButton", {
+              alignment: go.Spot.Right,
+              margin: 5,
+            }),
+            $(
+              go.TextBlock,
+              {
+                alignment: go.Spot.Left,
+                editable: true,
+                margin: 5,
+                font: "18px Kanit",
+                opacity: 0.75, // allow some color to show through
+                stroke: "white",
+              },
+              new go.Binding("font", "horiz", defaultFont),
+              new go.Binding("text", "text").makeTwoWay()
+            )
+          ), // end Horizontal Panel
+          $(go.Placeholder, { padding: 5, alignment: go.Spot.TopLeft })
+        ) // end Vertical Panel
+      );
+
+      myDiagram.nodeTemplate = $(
+        go.Node,
+        "Auto",
+        $(
+          go.Shape,
+          "RoundedRectangle",
+          { fill: checkSubject(), stroke: null },
+          new go.Binding("fill", "check", checkSubject),
+          new go.Binding("text","text").makeTwoWay()
+        ),
+        $(
+          go.TextBlock,
+          {
+            margin: 5,
+            editable: true,
+            font: "14px Kanit",
+            opacity: 0.75,
+            stroke: "#000",
+          },
+          new go.Binding("text", "text").makeTwoWay()
         )
       );
-      myDiagram.model = new go.GraphLinksModel(
-        this.nodeSubject
-      );
+
+      myDiagram.layout = $(go.TreeLayout, { isRealtime: false });
+      myDiagram.model = new go.GraphLinksModel(this.nodeSubject);
     },
   },
   mounted: function() {

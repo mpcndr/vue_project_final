@@ -2,7 +2,6 @@
   <div class="about">
     <subject/>
   </div>
-  
 </template>
 
 <script>

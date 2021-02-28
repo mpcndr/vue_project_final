@@ -1,7 +1,7 @@
 <template>
   <div class="page2">
     <div class="card bg-dark text-white">
-      <img class="card-img" src="" alt="Card image" style="height: 500px;">
+      <img class="card-img" src="../assets/IMG_2103.jpg" alt="Card image" style="height: 500px;">
     </div>
     <h1>{{ msg }}</h1>
     <section class="container">

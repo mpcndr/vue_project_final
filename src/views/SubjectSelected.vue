@@ -10,7 +10,7 @@
         </li>
         <li>
           <a data-scroll="about" href="#about" class="dot">
-            <span>แนะนำหากต้องการย้ายสาขา</span>
+            <span>รายวิชาและตัวต่อ</span>
           </a>
         </li>
       </ul>
@@ -22,13 +22,26 @@
       <div class="container">
         <div class="content-wrapper text-center">
           <div class="content">
-            <h1>Hello, I'm Ahmed Beheiry <br />Front-End Developer</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Inventore odit ipsam expedita dolorem.<br />
-              Distinctio, aliquid minima voluptatem saepe.
-            </p>
-            <a href="/subject_cal"><button>คำนวณหลักสูตร</button></a>
+            <div class="text-align">
+              <h1>วางแผนการเรียน</h1>
+              <p>ด้วยการคำนวณหลักสูตรจาก</p>
+              <h1 class="logo-text">regGuide</h1>
+            </div>
+
+            <a href="/subject_cal"
+              ><button>
+                คำนวณหลักสูตร
+              </button></a
+            >
+          </div>
+          <div class="content">
+            <a>
+              <img
+                src="../assets/dashboard (1).png"
+                alt=""
+                style="width: 180px; height: 180px;"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -38,13 +51,25 @@
       <div class="container">
         <div class="content-wrapper text-center">
           <div class="content">
-            <h1>Hello, I'm Ahmed Beheiry <br />Front-End Developer</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Inventore odit ipsam expedita dolorem.<br />
-              Distinctio, aliquid minima voluptatem saepe.
+            <h2 style="color: #2d3142">อยากรู้ว่าตัวต่อไปเรียนอะไรบ้าง?</h2>
+            <p style="font-size: 26px">
+              <span class="logo-text" style="font-size: 36px">regGuide</span>
+              ทำแผนผังนี้เพื่อคุณ
             </p>
-            <a href="/dataSubjectdiagram"><button>รายวิชาและตัวต่อ</button></a>
+            <a href="/dataSubjectdiagram"
+              ><button>
+                รายวิชาและตัวต่อ
+              </button></a
+            >
+          </div>
+          <div class="content">
+            <a>
+              <img
+                src="../assets/planning.png"
+                alt=""
+                style="width: 180px; height: 180px;"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -56,8 +81,8 @@
 var $ = require("jquery");
 
 export default {
-    name: 'subjec_selected'
-}
+  name: "subjec_selected",
+};
 
 $(function() {
   var link = $("#navbar a.dot");
@@ -100,7 +125,6 @@ $(function() {
 });
 </script>
 
-
 <style scoped>
 * {
   box-sizing: border-box;
@@ -112,19 +136,22 @@ body {
   color: #333;
 }
 h1 {
-    color: #2d3142;
+  font-size: 56px;
+  color: #2d3142;
 }
 p {
+  font-size: 32px;
   color: #565656;
-  line-height: 1.8;
+  line-height: 28px;
 }
 .section {
-  min-height: 800px;
+  min-height: 100%;
 }
 .container {
   width: 1170px;
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
+  height: 845px;
 }
 .text-center {
   text-align: center;
@@ -143,7 +170,7 @@ p {
 }
 .content {
   display: table-cell;
-  width: 100%;
+  width: 40%;
   vertical-align: middle;
 }
 /* End Global Styles */
@@ -184,20 +211,20 @@ p {
   width: 5px;
   height: 5px;
   right: 0;
-  border: 2px solid #181818;
+  border: 2px solid #C0392B;
   transform: translateY(-50%);
 }
 .navbar .nav-menu li .dot::after {
   width: 15px;
   height: 15px;
-  border: 2px solid #da694b;
+  border: 2px solid #CB4335;
   right: -5px;
   transform: translateY(-50%) scale(0);
 }
 .navbar .nav-menu li .dot.active::before,
 .navbar .nav-menu li:hover .dot::before {
-  background: #da694b;
-  border-color: #da694b;
+  background: #fff;
+  border-color: #CB4335;
 }
 .navbar .nav-menu li .dot.active::after,
 .navbar .nav-menu li:hover .dot::after {
@@ -209,7 +236,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: capitalize;
-  background-color: #da694b;
+  background-color: #CE0000;
   padding: 10px 20px;
   border-radius: 3px;
   margin-right: 30px;
@@ -220,7 +247,7 @@ p {
   display: block;
   position: absolute;
   content: "";
-  border-left: 7px solid #da694b;
+  border-left: 7px solid #CE0000;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
   top: 50%;
@@ -260,6 +287,7 @@ p {
   background-color: #f6f6f6;
 }
 #about button {
+  color: #2d3142;
   border: 2px solid #4f5d75;
   background-color: transparent;
   outline: none;
@@ -274,4 +302,9 @@ p {
   color: #fff;
 }
 /* End About Styles */
+
+.logo-text {
+  color: #da694b;
+  font-weight: bold;
+}
 </style>
