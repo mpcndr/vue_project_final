@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TutorAnimation2></TutorAnimation2>
     <div style="width: 100vw;"></div>
     <div id="myDiagramDiv" style="width: 100vw; height:62vh;"></div>
     <div id="myAsignatura" style="width: 100vw; height:29.5vh;"></div>
@@ -8,113 +9,116 @@
 
 <script>
 import go from "gojs";
+import TutorAnimation2 from "../components/TutorAnimation2.vue";
 export default {
   name: "diagram_dataSubject",
-
+  components: {
+    TutorAnimation2,
+  },
   data: function() {
     return {
       nodeDataArray: [
         {
           key: 11,
-          text: "1 Term 1",
+          text: "ปีการศึกษาปีที่ 1/1",
           isGroup: true,
         },
         {
           key: 12,
-          text: "1 Term 2",
+          text: "ปีการศึกษาปีที่ 1/2",
           isGroup: true,
         },
         {
           key: 21,
-          text: "2 Term 1",
+          text: "ปีการศึกษาปีที่ 2/1",
           isGroup: true,
         },
         {
           key: 22,
-          text: "2 Term 2",
+          text: "ปีการศึกษาปีที่ 2/2",
           isGroup: true,
         },
         {
           key: 31,
-          text: "3 Term 1",
+          text: "ปีการศึกษาปีที่ 3/1",
           isGroup: true,
         },
         {
           key: 32,
-          text: "3 Term 2",
+          text: "ปีการศึกษาปีที่ 3/2",
           isGroup: true,
         },
         {
           key: 41,
-          text: "4 Term 1",
+          text: "ปีการศึกษาปีที่ 4/1",
           isGroup: true,
         },
         {
           key: 42,
-          text: "4 Term 2",
+          text: "ปีการศึกษาปีที่ 4/2",
           isGroup: true,
         },
         /*------1 term 1 ------*/
         {
           key: "511100",
-          name: "Precal",
+          name: "PRECALCULUS",
           group: 11,
           grade: 1,
         },
         {
           key: "511108",
-          name: "Cal I",
+          name: "CALCULUS FOR COMPUTATIONAL SCIENTISTS I",
           group: 11,
           grade: -1,
         },
         {
           key: "081102",
-          name: "English I",
+          name: "ENGLISH FOR EVERYDAY USE",
           group: 11,
           grade: 1,
         },
         {
           key: "514107",
-          name: "Physic",
+          name: "FUNDAMENTAL PHYSICS",
           group: 11,
           grade: 1,
         },
         {
           key: "517121",
-          name: "Com I",
+          name: "COMPUTER PROGRAMMING SKILL I",
           group: 11,
           grade: -1,
         },
         {
           key: "520101",
-          name: "ComFound",
+          name: "FOUNDATION OF COMPUTER AND INFORMATICS",
           group: 11,
           grade: 1,
         },
         /*------1 term 2 ------*/
         {
           key: "081103",
-          name: "English II",
+          name: "ENGLISH SKILLS DEVELOPMENT",
           group: 12,
           grade: 1,
         },
         {
           key: "511109",
-          name: "Cal II",
+          name: "CALCULUS FOR COMPUTATIONAL SCIENTISTS II",
           group: 12,
           grade: 0,
         },
         {
           key: "515201",
-          name: "Static",
+          name: "ELEMENTARY STATISTICS",
           group: 12,
           grade: 1,
         },
         {
           key: "517122",
-          name: "Com II",
+          name: "COMPUTER PROGRAMMING SKILL II",
           group: 12,
-          grade: 0
+          grade: 0,
         },
         {
           key: "01",
@@ -125,111 +129,111 @@ export default {
         /*------2 term 1 ------*/
         {
           key: "510201",
-          name: "English for Science",
+          name: "SCIENTIFIC ENGLISH",
           group: 21,
           grade: 0,
         },
         {
           key: "515232",
-          name: "Prop",
+          name: "PROBABILITY FOR COMPUTER SCIENTIST",
           group: 21,
           grade: 0,
         },
         {
           key: "517211",
-          name: "Data Struce",
+          name: "DATA STRUCTURES",
           group: 21,
           grade: 0,
         },
         {
           key: "517212",
-          name: "Digital",
+          name: " DIGITAL LOGIC DESIGN",
           group: 21,
           grade: 0,
         },
         {
-          key: "520213",
-          name: "Discreat",
+          key: "517213",
+          name: "DISCRETE COMPUTATIONAL STRUCTURES",
           group: 21,
           grade: 0,
         },
         {
           key: "520215",
-          name: "Big Data",
+          name: "PROGRAMMING STATISTICAL LEARNING FOR BIG DATA",
           group: 21,
           grade: 0,
         },
         /*------2 term 2 ------*/
         {
           key: "510202",
-          name: "English",
+          name: "COMMUNICATIVE ENGLISH",
           group: 22,
           grade: 0,
         },
         {
           key: "511242",
-          name: "Linear",
+          name: "LINEAR ALGEBRA WITH APPLICATIONS",
           group: 22,
           grade: 0,
         },
         {
           key: "517221",
-          name: "OOSD",
+          name: "OBJECT-ORIENTED SOFTWARE DEVELOPMENT",
           group: 22,
           grade: 0,
         },
         {
           key: "517222",
-          name: "ComOrganiz",
+          name: "COMPUTER ORGANIZATION AND ARCHITECTURE",
           group: 22,
           grade: 0,
         },
         {
           key: "520221",
-          name: "DataBase",
+          name: "DATABASE SYSTEMS",
           group: 22,
           grade: 0,
         },
         {
           key: "517241",
-          name: "DataCom",
+          name: "DATA COMMUNICATIONS AND COMPUTER NETWORKS",
           group: 22,
           grade: 0,
         },
         /*------3 term 1 ------*/
         {
           key: "081101",
-          name: "Thai",
+          name: "THAI FOR COMMUNICATION",
           group: 31,
           grade: 0,
         },
         {
           key: "517311",
-          name: "Algorithm",
+          name: "ALGORITHM ANALYSIS AND DESIGN",
           group: 31,
           grade: 0,
         },
         {
           key: "517312",
-          name: "OS",
+          name: "OPERATING SYSTEMS",
           group: 31,
           grade: 0,
         },
         {
           key: "517321",
-          name: "PL",
+          name: "PRINCIPLES OF PROGRAMMING LANGUAGES",
           group: 31,
           grade: 0,
         },
         {
           key: "520212",
-          name: "Laws",
+          name: "LAWS AND ETHICS IN INFORMATION TECHNOLOGY",
           group: 31,
           grade: 0,
         },
         {
           key: "520361",
-          name: "SA",
+          name: "SYSTEM ANALYSIS AND DESIGN",
           group: 31,
           grade: 0,
         },
@@ -242,77 +246,77 @@ export default {
         /*------3 term 2 ------*/
         {
           key: "517313",
-          name: "Theory",
+          name: "THEORY OF COMPUTATION",
           group: 32,
           grade: 0,
         },
         {
           key: "517391",
-          name: "RM",
+          name: "RESEARCH METHODS",
           group: 32,
-          grade: 0
+          grade: 0,
         },
         {
           key: "520351",
-          name: "HCI",
+          name: "HUMAN COMPUTER INTERACTION AND INTERFACE DESIGN",
           group: 32,
-          grade: 0
+          grade: 0,
         },
         {
           key: "520362",
-          name: "SE",
+          name: "SOFTWARE ENGINEERING",
           group: 32,
-          grade: 0
+          grade: 0,
         },
         {
           key: "02",
           name: "วิชาเลือกในหมวดวิชาเฉพาะ",
           group: 32,
-          grade: 0
+          grade: 0,
         },
         {
           key: "03",
           name: "วิชาเลือกในรายวิชาศึกษาทั่วไปที่กําหนดโดยคณะวิทยาศาสตร์",
           group: 32,
-          grade: 0
+          grade: 0,
         },
         /*------4 term 1 ------*/
         {
           key: "517493",
-          name: "Project I",
+          name: " RESEARCH PROJECT I",
           group: 41,
-          grade: 0
+          grade: 0,
         },
         {
           key: "02",
           name: "วิชาเลือกในหมวดวิชาเฉพาะ",
           group: 41,
-          grade: 0
+          grade: 0,
         },
         {
           key: "01",
           name: "วิชาบังคับเลือกในหมวดวิชาศึกษาทั่วไป",
           group: 41,
-          grade: 0
+          grade: 0,
         },
         {
           key: "04",
           name: "วิชาเลือกในหมวดวิชาเลือกเสรี",
           group: 41,
-          grade: 0
+          grade: 0,
         },
         /*------4 term 2 ------*/
         {
           key: "517494",
           name: "Project II",
           group: 42,
-          grade: 0
+          grade: 0,
         },
         {
           key: "04",
           name: "วิชาเลือกในหมวดวิชาเลือกเสรี",
           group: 42,
-          grade: 0
+          grade: 0,
         },
       ],
       linkDataArray: [
@@ -389,21 +393,21 @@ export default {
         ChangedSelection: showLocalOnLocalClick,
       });
 
-      var highlighter = $(
-        go.Part,
-        "Auto",
-        {
-          layerName: "Background",
-          selectable: false,
-          //isInDocumentBounds: false,
-          locationSpot: go.Spot.Center,
-        },
-        $(go.Shape, "Ellipse", {
-          fill: "white",
-          stroke: "lightgrey",
-          strokeWidth: 2,
-        })
-      );
+      // var highlighter = $(
+      //   go.Part,
+      //   "Auto",
+      //   {
+      //     layerName: "Background",
+      //     selectable: false,
+      //     //isInDocumentBounds: false,
+      //     locationSpot: go.Spot.Center,
+      //   },
+      //   $(go.Shape, "Ellipse", {
+      //     fill: "white",
+      //     stroke: "lightgrey",
+      //     strokeWidth: 2,
+      //   })
+      // );
 
       myDiagram.model = new go.GraphLinksModel(
         this.nodeDataArray,
@@ -412,71 +416,55 @@ export default {
 
       myDiagram.undoManager.isEnabled = true;
 
-      myDiagram.add(
-        $(
-          go.Part,
-          $(go.TextBlock, "Carrera", {
-            margin: 10,
-            font: "32px Kanit",
-            stroke: "white",
-            isMultiline: false,
-            //editable: true
-          })
-        )
-      );
-
       myDiagram.isReadOnly = false;
-// groupTemplate data background
+      // groupTemplate data background
       myDiagram.groupTemplate = $(
         go.Group,
-        "Auto",
-        {
-          layout: $(go.LayeredDigraphLayout, {
-            direction: 0,
-            columnSpacing: 8,
-          }),
-        },
-        $(go.Shape, "RoundedRectangle", { parameter1: 10, fill: "#364B2F", stroke: "#364B2F" }),
+        "Vertical",
+        $(go.GridLayout, {
+          wrappingColumn: 20,
+          alignment: go.GridLayout.Position,
+          cellSize: new go.Size(50, 10),
+        }),
+
+        // $(go.Shape, "RoundedRectangle", {
+        //   parameter1: 10,
+        //   fill: "#BFD5BF",
+        //   stroke: "#526552",
+        // }),
         $(
           go.Panel,
-          "Table",
-          { margin: 0 },
-          $(go.RowColumnDefinition, { row: 0, background: "#none" }),
+          "Horizontal",
+          { margin: 2 },
+          // $(go.RowColumnDefinition, { row: 0, background: "#none" }),
           $(
             go.TextBlock,
             {
               row: 0,
               column: 1,
               font: "20px Kanit",
-              stroke: "#fff",
               textAlign: "center",
               stretch: go.GraphObject.Horizontal,
             },
             new go.Binding("text")
           ),
-          $(
-            go.Placeholder,
-            { row: 1, columnSpan: 2, padding: 5, alignment: go.Spot.TopLeft },
-            new go.Binding("padding", "isSubGraphExpanded", function(exp) {
-              return exp ? 12 : 0;
-            }).ofObject()
-          )
+          $(go.Placeholder, { row: 1, columnSpan: 2, padding: 25 })
         )
       );
 
-      myDiagram.layout = $(go.LayeredDigraphLayout, { isRealtime: true });
+      myDiagram.layout = $(go.GridLayout, { isRealtime: true });
 
       myDiagram.nodeTemplate = $(
         go.Node,
         "Auto",
         {
-          fromSpot: go.Spot.Right,
-          toSpot: go.Spot.Left,
+          fromSpot: go.Spot.MiddleRight,
+          toSpot: go.Spot.MiddleLeft,
         } /*new go.Binding("location", "loc", go.Point.parse),*/,
         $(
           go.Shape,
           "RoundedRectangle",
-          { strokeWidth: 0 },
+          { strokeWidth: 0, },
           new go.Binding("fill", "color")
         ),
         $(
@@ -490,7 +478,12 @@ export default {
       );
       myDiagram.linkTemplate = $(
         go.Link,
-        { routing: go.Link.Orthogonal, corner: 10, curve: go.Link.JumpOver },
+        {
+          routing: go.Link.AvoidsNodes,
+          curve: go.Link.JumpOver,
+          fromSpot: go.Spot.BottomCenter,
+          toSpot: go.Spot.MiddleTop,
+        },
         $(go.Shape),
         $(go.Shape, { toArrow: "Standard" })
       );
@@ -585,6 +578,8 @@ export default {
           //relinkableFrom: true,
           //relinkableTo: true,
           curve: go.Link.JumpGap,
+          fromSpot: go.Spot.BottomCenter,
+          toSpot: go.Spot.TopCenter,
         },
         //link node
         $(
@@ -611,22 +606,22 @@ export default {
       myDiagram.linkTemplate = myLinkTemplate;
       myAsignatura.linkTemplate = myLinkTemplate;
 
-      highlighter = $(
-        go.Part,
-        "Auto",
-        {
-          layerName: "Background",
-          selectable: false,
-          //isInDocumentBounds: false,
-          locationSpot: go.Spot.Center,
-        },
-        $(go.Shape, "Ellipse", {
-          fill: "white",
-          stroke: "lightgrey",
-          strokeWidth: 4,
-        })
-      );
-      myDiagram.add(highlighter);
+      // highlighter = $(
+      //   go.Part,
+      //   "Auto",
+      //   {
+      //     layerName: "Background",
+      //     selectable: false,
+      //     //isInDocumentBounds: false,
+      //     locationSpot: go.Spot.Center,
+      //   },
+      //   $(go.Shape, "Ellipse", {
+      //     fill: "white",
+      //     stroke: "lightgrey",
+      //     strokeWidth: 4,
+      //   })
+      // );
+      // myDiagram.add(highlighter);
       myDiagram.addDiagramListener("InitialLayoutCompleted", function() {
         var node0 = myDiagram.findPartForKey(0);
         if (node0 !== null) node0.isSelected = true;
@@ -634,12 +629,12 @@ export default {
       });
 
       function checkSubject(grade) {
-        if(grade == 1) {
-          return "#2B9E94"
-        }else if(grade == -1) {
-          return "#DE526B"
-        }else {
-          return "#868686"
+        if (grade == 1) {
+          return "#2B9E94";
+        } else if (grade == -1) {
+          return "#DE526B";
+        } else {
+          return "#868686";
         }
       }
 
@@ -648,7 +643,7 @@ export default {
         if (node !== null && node instanceof go.Node) {
           //highlighter.visible = true;
           myDiagram.scrollToRect(node.actualBounds);
-          highlighter.location = node.location;
+          // highlighter.location = node.location;
 
           var model = new go.GraphLinksModel();
           var nearby = node.findTreeParts(2);
@@ -674,7 +669,7 @@ export default {
           if (selectedLocal !== null) selectedLocal.isSelected = true;
         } else {
           //asignatura.clearSelection();
-          highlighter.visible = false;
+          // highlighter.visible = false;
           myAsignatura.clear();
         }
       }
@@ -730,6 +725,7 @@ export default {
 </script>
 
 <style scoped>
+
 /* body {
   background: darkgrey;
 }

@@ -39,7 +39,16 @@
             <span v-else>
               
             </span> -->
-            <!-- <router-link to="/login" id="text-underline" class="nav-link">เข้าสู่ระบบ</router-link> -->
+            <!-- <a
+              id="text-underline"
+              class="nav-link"
+              @click="
+                redirect(
+                  'https://nidp.su.ac.th/nidp/oauth/nam/authz?response_type=token&scope=suappportal&client_id=12970a8f-0a28-410f-a9e9-e4daaa8c17fa&redirect_uri=https://api.su.ac.th/account/oauth/&state='
+                )
+              "
+              >เข้าสู่ระบบ</a
+            > -->
             <!-- <button
               type="button"
               class="btn btn-danger"
@@ -65,7 +74,7 @@
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item"><router-link to="/profile" style="text-decoration: none; color: #000">ข้อมูลส่วนตัว</router-link></a>
-                <a class="dropdown-item"><router-link to="/profile" style="text-decoration: none; color: #000">ออกจากระบบ</router-link></a>
+                <a class="dropdown-item" href="">ออกจากระบบ</a>
               </div>
             </div>
           </ul>
@@ -84,6 +93,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 var $ = require("jquery");
 
 $(document).ready(function() {
@@ -106,7 +116,41 @@ $(document).ready(function() {
   });
 });
 
-export default {};
+export default {
+  name: "app",
+  data() {
+    return {
+      session_key: "",
+    };
+  },
+  methods: {
+    sessionRandom() {
+      this.session_key = Date.parse(new Date()) + this.makeid(8);
+      console.log(this.session_key)
+      return this.session_key;
+    },
+    makeid(length) {
+      var result = "";
+      var characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    },
+    redirect(link) {
+      window.open(link + this.sessionRandom());
+    },
+  },
+  created() {
+    axios.get('https://nidp.su.ac.th/nidp/oauth/nam/authz?response_type=token&scope=suappportal&client_id=12970a8f-0a28-410f-a9e9-e4daaa8c17fa&redirect_uri=https://api.su.ac.th/account/oauth/&state=').then((response) => {
+      console.log(response.data)
+    })
+  }
+};
 </script>
 
 <style>

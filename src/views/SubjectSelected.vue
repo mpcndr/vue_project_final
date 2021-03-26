@@ -19,10 +19,10 @@
 
     <!-- Start Home Section -->
     <section id="home" class="section">
-      <div class="container">
-        <div class="content-wrapper text-center">
+      <div class="row align-items-center">
+        <div class="col-md-6">
           <div class="content">
-            <div class="text-align">
+            <div class="text-center">
               <h1>วางแผนการเรียน</h1>
               <p>ด้วยการคำนวณหลักสูตรจาก</p>
               <h1 class="logo-text">regGuide</h1>
@@ -34,23 +34,17 @@
               </button></a
             >
           </div>
-          <div class="content">
-            <a>
-              <img
-                src="../assets/dashboard (1).png"
-                alt=""
-                style="width: 180px; height: 180px;"
-              />
-            </a>
-          </div>
+        </div>
+        <div class="col-md-6">
+          <TutorAnimation class="content"></TutorAnimation>
         </div>
       </div>
     </section>
     <!-- Start About Me Section -->
     <section id="about">
       <div class="container">
-        <div class="content-wrapper text-center">
-          <div class="content">
+        <div>
+          <div class="content" align="left">
             <h2 style="color: #2d3142">อยากรู้ว่าตัวต่อไปเรียนอะไรบ้าง?</h2>
             <p style="font-size: 26px">
               <span class="logo-text" style="font-size: 36px">regGuide</span>
@@ -78,10 +72,14 @@
 </template>
 
 <script>
+import TutorAnimation from "../components/TutorAnimation1.vue";
 var $ = require("jquery");
 
 export default {
   name: "subjec_selected",
+  components: {
+    TutorAnimation,
+  },
 };
 
 $(function() {
@@ -126,6 +124,43 @@ $(function() {
 </script>
 
 <style scoped>
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translate(100px, 100px);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+.fa-mouse-pointer {
+  text-align: center;
+  animation: slideDown 5s ease 0s infinite normal none;
+  transform-origin: center center;
+  border-radius: 50%;
+  height: 0px;
+  width: 0px;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.fa-sitemap {
+  text-align: center;
+  transform-origin: center center;
+  border-radius: 50%;
+  font-size: 75px;
+  height: 0px;
+  width: 0px;
+}
+
+div > #tutor-cursor {
+  position: absolute;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -147,8 +182,8 @@ p {
 .section {
   min-height: 100%;
 }
-.container {
-  width: 1170px;
+.container,
+.row {
   max-width: 100%;
   margin: 0 auto;
   height: 845px;
@@ -211,20 +246,20 @@ p {
   width: 5px;
   height: 5px;
   right: 0;
-  border: 2px solid #C0392B;
+  border: 2px solid #c0392b;
   transform: translateY(-50%);
 }
 .navbar .nav-menu li .dot::after {
   width: 15px;
   height: 15px;
-  border: 2px solid #CB4335;
+  border: 2px solid #cb4335;
   right: -5px;
   transform: translateY(-50%) scale(0);
 }
 .navbar .nav-menu li .dot.active::before,
 .navbar .nav-menu li:hover .dot::before {
   background: #fff;
-  border-color: #CB4335;
+  border-color: #cb4335;
 }
 .navbar .nav-menu li .dot.active::after,
 .navbar .nav-menu li:hover .dot::after {
@@ -236,7 +271,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: capitalize;
-  background-color: #CE0000;
+  background-color: #ce0000;
   padding: 10px 20px;
   border-radius: 3px;
   margin-right: 30px;
@@ -247,7 +282,7 @@ p {
   display: block;
   position: absolute;
   content: "";
-  border-left: 7px solid #CE0000;
+  border-left: 7px solid #ce0000;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
   top: 50%;

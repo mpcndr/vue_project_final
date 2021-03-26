@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="mySubcal" style="width: 100vw; height: 90vh"></div>
+    <div id="mySubcal" style="width: 100vw; height: 91.5vh"></div>
   </div>
 </template>
 
@@ -11,11 +11,16 @@ export default {
   props: {},
   data() {
     return {
+      status: 2,
       nodeSubject: [
         { key: 1, isGroup: true, text: "ปีการศึกษาปีที่ 1", horiz: true },
         { key: 2, isGroup: true, text: "ปีการศึกษาปีที่ 2", horiz: true },
         { key: 3, isGroup: true, text: "ปีการศึกษาปีที่ 3", horiz: true },
         { key: 4, isGroup: true, text: "ปีการศึกษาปีที่ 4", horiz: true },
+        { key: 5, isGroup: true, text: "ปีการศึกษาปีที่ 5", horiz: true },
+        { key: 6, isGroup: true, text: "ปีการศึกษาปีที่ 6", horiz: true },
+        { key: 7, isGroup: true, text: "ปีการศึกษาปีที่ 7", horiz: true },
+        { key: 8, isGroup: true, text: "ปีการศึกษาปีที่ 8", horiz: true },
         { key: 11, isGroup: true, text: "เทอม1", group: 1 },
         { key: 12, isGroup: true, text: "เทอม2", group: 1 },
         { key: 21, isGroup: true, text: "เทอม1", group: 2 },
@@ -25,6 +30,16 @@ export default {
         { key: 41, isGroup: true, text: "เทอม1", group: 4 },
         { key: 42, isGroup: true, text: "เทอม2", group: 4 },
         { key: 43, isGroup: true, text: "เทอม3", group: 4 },
+        { key: 51, isGroup: true, text: "เทอม1", group: 5 },
+        { key: 52, isGroup: true, text: "เทอม2", group: 5 },
+        { key: 61, isGroup: true, text: "เทอม1", group: 6 },
+        { key: 62, isGroup: true, text: "เทอม2", group: 6 },
+        { key: 71, isGroup: true, text: "เทอม1", group: 7 },
+        { key: 72, isGroup: true, text: "เทอม2", group: 7 },
+        { key: 81, isGroup: true, text: "เทอม1", group: 8 },
+        { key: 82, isGroup: true, text: "เทอม2", group: 8 },
+        { key: 83, isGroup: true, text: "เทอม3", group: 8 },
+
         { text: "511100 precalculus", group: 11, check: 1 },
         { text: "511108 calculus 1", group: 11, check: -1 },
         { text: "081102 english", group: 11, check: 1 },
@@ -74,7 +89,61 @@ export default {
 
         {
           text: "517494 research project 2",
-          group: 43, check: 0
+          group: 43,
+          check: 0,
+        },
+
+        { text: "511100 precalculus", group: 51, check: 0 },
+        { text: "511108 calculus 1", group: 51, check: 0 },
+        { text: "081102 english", group: 51, check: 0 },
+        { text: "471302 health edu", group: 51, check: 0 },
+        { text: "514107 fun physics", group: 51, check: 0 },
+        { text: "517121 com 1", group: 51, check: 0 },
+        { text: "520101 foundation of com", group: 51, check: 0 },
+
+        { text: "081103 english", group: 52, check: 0 },
+        { text: "083104 sport edu", group: 52, check: 0 },
+        { text: "084108 earth&astronomy", group: 52, check: 0 },
+        { text: "085101 creative su", group: 52, check: 0 },
+        { text: "515201 elementary statistics", group: 52, check: 0 },
+
+        { text: "517121 com 1", group: 61, check: 0 },
+        { text: "511108 cal 1", group: 61, check: 0 },
+        { text: "510201 english for science", group: 61, check: 0 },
+        { text: "517212 digital logic design", group: 61, check: 0 },
+
+        { text: "510202 communicative eng", group: 62, check: 0 },
+        { text: "517122 com 2", group: 62, check: 0 },
+        { text: "517222 com organization&architecture", group: 22, check: 0 },
+        { text: "511109 cal 2", group: 62, check: 0 },
+        { text: "511242 linear", group: 62, check: 0 },
+
+        { text: "081101 thai for communication", group: 71, check: 0 },
+        { text: "517213 discrete", group: 71, check: 0 },
+        { text: "517211 data structure", group: 71, check: 0 },
+        { text: "517312 operating systems", group: 71, check: 0 },
+        { text: "520212 laws&ethics", group: 71, check: 0 },
+        { text: "520215 big data", group: 71, check: 0 },
+
+        { text: "520221 data base", group: 72, check: 0 },
+        { text: "517221 OOSD", group: 72, check: 0 },
+        { text: "517313 theory", group: 72, check: 0 },
+        { text: "517391 RM", group: 72, check: 0 },
+        { text: "520351 HCI", group: 72, check: 0 },
+
+        { text: "517311 Algorithm", group: 81, check: 0 },
+        { text: "517321 PL", group: 81, check: 0 },
+        { text: "520361 system analysis and design", group: 41, check: 0 },
+        { text: "515232 probability", group: 81, check: 0 },
+
+        { text: "516190 Household", group: 82, check: 0 },
+        { text: "517493 research project 1", group: 82, check: 0 },
+        { text: "520362 SE", group: 82, check: 0 },
+
+        {
+          text: "517494 research project 2",
+          group: 83,
+          check: 0,
         },
       ],
       subjects: [],
@@ -97,6 +166,19 @@ export default {
           horiz: false,
         },
         "undoManager.isEnabled": true,
+        // "SubGraphExpanded": function(e) {
+        //   var groups = e.subject;
+        //   groups.each(function(g) {
+        //     var container = g.containingGroup;
+        //     if(container !== null) {
+        //       container.memberParts.each(function(m) {
+        //         if(m !== g && m instanceof go.Group) {
+        //           m.collapseSubGraph();
+        //         }
+        //       })
+        //     }
+        //   })
+        // }
       });
 
       function makeLayout(horiz) {
@@ -128,13 +210,12 @@ export default {
       }
 
       function checkSubject(check) {
-        if(check === 1){
-          return "#52DEC1";
-        }
-        else if(check === -1) {
-          return "#DE526B";
-        }else {
-          return "#BDC3C7";//"#C39BD3";
+        if (check === 1) {
+          return "#47D930";
+        } else if (check === -1) {
+          return "#F14646";
+        } else {
+          return "#BDC3C7"; //"#C39BD3";
         }
       }
 
@@ -154,6 +235,16 @@ export default {
         }
         grp.isHighlighted = false;
       }
+
+      // function statusStudy(show) {
+      //   for(var i=1; i<=4; i++){
+      //     if(this.status===i){
+      //       return show;
+      //     }else{
+      //       return false;
+      //     }
+      //   }
+      // }
 
       myDiagram.groupTemplate = $(
         go.Group,
@@ -175,6 +266,7 @@ export default {
           handlesDragDropForMembers: true, // don't need to define handlers on member Nodes and Links
           // Groups containing Groups lay out their members horizontally
           layout: makeLayout(false),
+          isSubGraphExpanded: true
         },
         new go.Binding("layout", "horiz", makeLayout),
         new go.Binding("background", "isHighlighted", function(h) {
@@ -207,7 +299,6 @@ export default {
               go.TextBlock,
               {
                 alignment: go.Spot.Left,
-                editable: true,
                 margin: 5,
                 font: "18px Kanit",
                 opacity: 0.75, // allow some color to show through
@@ -229,7 +320,7 @@ export default {
           "RoundedRectangle",
           { fill: checkSubject(), stroke: null },
           new go.Binding("fill", "check", checkSubject),
-          new go.Binding("text","text").makeTwoWay()
+          new go.Binding("text", "text").makeTwoWay()
         ),
         $(
           go.TextBlock,
@@ -244,7 +335,11 @@ export default {
         )
       );
 
-      myDiagram.layout = $(go.TreeLayout, { isRealtime: false });
+      myDiagram.layout = $(go.GridLayout, {
+        wrappingColumn: 4,
+        alignment: go.GridLayout.Position,
+        cellSize: new go.Size(1, 1),
+      });
       myDiagram.model = new go.GraphLinksModel(this.nodeSubject);
     },
   },
