@@ -243,8 +243,7 @@ export default {
 <style scoped>
 
 #news-event {
-    background-color: #fff9f1;
-    margin-top: 40px;
+    margin-top: 5px;
 }
 .text-header {
     color: #da694b;

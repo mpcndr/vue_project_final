@@ -165,6 +165,7 @@ a.text-menu {
   padding-top: 15px;
 }
 div > a {
+
   letter-spacing: 0px;
 }
 </style>

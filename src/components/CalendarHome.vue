@@ -1,5 +1,11 @@
 <template>
+<div class="card-calendar">
   <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+        <h1 class="cal">ปฏิทินนักศึกษา</h1>
+      </div>
+    </div>
     <div class="row">
       <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
         <!-- <h4>Countdown Time</h4> -->
@@ -26,11 +32,11 @@
           </h4>
         </div>
       </div>
-      <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+      <div class="col">
         <div class="table-responsive">
           <table
             id="dtBasicExample"
-            class="table table-striped table-bordered table-sm table-hover"
+            class="table table-dark table-bordered table-sm table-hover"
             cellspacing="0"
             width="100%"
           >
@@ -56,6 +62,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -178,8 +185,15 @@ export default {
 </script>
 
 <style scope>
+h1.cal {
+  color: #26384e;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  padding: auto 0px;
+}
 h2 {
-  color: #da694b;
+  color: #fff;
   font-weight: 200;
 }
 .text-cal {
@@ -187,7 +201,7 @@ h2 {
   font-weight: bold;
 }
 .text-span {
-  color: #da694b;
+  color: #fff;
   font-size: 28px;
   font-weight: initial;
 }
@@ -201,14 +215,15 @@ h2 {
 }
 
 #clockdiv > div {
-  padding: 10px;
+  padding: 5px;
   display: inline-block;
 }
 
 #clockdiv div > span {
-  padding: 25px;
+  padding: 20px;
   border-radius: 12px;
   background: #000;
+  width: 85px;
   display: inline-block;
 }
 
@@ -216,6 +231,21 @@ h2 {
   padding-top: 5px;
   font-size: 16px;
   font-weight: bold;
-  color: #254361;
+  color: #444;
 }
+
+.card-calendar {
+  margin: 30px auto;
+  background: #f37f5f;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px #f37f5f, 3px 5px 20px #e28d76;
+  width: 1300px;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0px auto ;
+}
+
 </style>

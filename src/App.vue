@@ -33,22 +33,20 @@
               class="nav-link"
               >หลักสูตร</router-link
             >
-            <!-- <span v-if="IsLoggedIn">
+            <span v-if="this.$store.getters.login">
               <a @click="logout">ออกจากระบบ</a>
             </span>
             <span v-else>
-              
-            </span> -->
-            <!-- <a
+              <div
+              @click="Login()"
               id="text-underline"
               class="nav-link"
-              @click="
-                redirect(
-                  'https://nidp.su.ac.th/nidp/oauth/nam/authz?response_type=token&scope=suappportal&client_id=12970a8f-0a28-410f-a9e9-e4daaa8c17fa&redirect_uri=https://api.su.ac.th/account/oauth/&state='
-                )
-              "
-              >เข้าสู่ระบบ</a
-            > -->
+              style="cursor: pointer;"
+            >
+              เข้าสู่ระบบ
+            </div>
+            </span>
+            
             <!-- <button
               type="button"
               class="btn btn-danger"
@@ -81,52 +79,24 @@
         </div>
       </div>
     </nav>
-    <a
-      id="back-to-top"
-      href="#"
-      class="btn btn-dark btn-lg back-to-top"
-      role="button"
-      ><i class="fa fa-arrow-up justify-content-center" aria-hidden="true"></i
-    ></a>
     <router-view />
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-var $ = require("jquery");
-
-$(document).ready(function() {
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 50) {
-      $("#back-to-top").fadeIn();
-    } else {
-      $("#back-to-top").fadeOut();
-    }
-  });
-  // scroll body to 0px on click
-  $("#back-to-top").click(function() {
-    $("body,html").animate(
-      {
-        scrollTop: 0,
-      },
-      100
-    );
-    return false;
-  });
-});
-
+import Axios from "axios";
 export default {
   name: "app",
   data() {
     return {
       session_key: "",
+      username: "",
     };
   },
   methods: {
     sessionRandom() {
       this.session_key = Date.parse(new Date()) + this.makeid(8);
-      console.log(this.session_key)
+      console.log(this.session_key);
       return this.session_key;
     },
     makeid(length) {
@@ -144,12 +114,52 @@ export default {
     redirect(link) {
       window.open(link + this.sessionRandom());
     },
+    async Login() {
+      this.session_key = this.sessionRandom();
+      this.$store.dispatch("setSession", this.session_key)
+      await Axios.get(
+        "http://127.0.0.1:8000/api/ssoapi/?url=https://127.0.0.1:8080/&session=" +
+          this.session_key
+      ).then((r) => {
+        console.log(r + "dddd");
+        window.location = r.data.url;
+      });
+    },
+    ValidateToken() {
+      
+      if (this.$store.getters.getToken != null) {
+        console.log(this.$store.getters.getToken);
+        Axios.post(this.$store.getters.getApi + "api/validatetoken/", {
+          "token": this.$store.getters.getToken,
+        }).then((res) => {
+          if (res.data.state == "200") {
+            this.$store.dispatch("setLogin", true)
+            alert("yeah")
+            Axios.post(this.$store.getters.getApi + "api/getuser/", {
+              "token": this.$store.getters.getToken,
+            }).then((res1) => {
+              this.username = res1.data.id_user;
+            });
+          }
+        });
+      }
+    },
   },
-  created() {
-    axios.get('https://nidp.su.ac.th/nidp/oauth/nam/authz?response_type=token&scope=suappportal&client_id=12970a8f-0a28-410f-a9e9-e4daaa8c17fa&redirect_uri=https://api.su.ac.th/account/oauth/&state=').then((response) => {
-      console.log(response.data)
-    })
-  }
+  async created() {
+    //
+    await this.ValidateToken();
+    if (this.$store.getters.getSession != null) {
+      console.log("-->" + this.$store.getters.getSession);
+      Axios.post(this.$store.getters.getApi + "api/sessiontotoken/", {
+        "session": this.$store.getters.getSession,
+      }).then((res) => {
+        
+        this.$store.dispatch("setToken", res.data.token);
+        console.log("********************"+ res.data.token);
+        this.ValidateToken();
+      });
+    }
+  },
 };
 </script>
 
