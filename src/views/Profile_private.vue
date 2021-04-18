@@ -6,7 +6,7 @@
           <!-- SIDEBAR USERPIC -->
           <div class="profile-userpic">
             <img
-              src="../assets/8c048ebaf3b009ffd259a43661145b21.jpg"
+              :src="this.data_student.image_student"
               class="img-responsive"
               alt=""
             />
@@ -14,12 +14,13 @@
           <!-- END SIDEBAR USERPIC -->
           <!-- SIDEBAR USER TITLE -->
           <div class="profile-usertitle">
-            <h2 class="profile-name">
-              ชนัฐฎา รูปงาม
+            <h2 class="profile-name" style="color: #000">
+              {{ this.data_student.student_name + " " + this.data_student.student_surname}}
             </h2>
             <h5 class="profile-faculty">
-              คณะวิทยาศาสตร์<br>
-              <small>วิทยาการคอมพิวเตอร์</small>
+              {{ this.data_student.faculty}}
+              <br />
+              <small>{{ this.data_student.deparment }}</small>
             </h5>
           </div>
           <!-- END SIDEBAR USER TITLE -->
@@ -39,7 +40,7 @@
               role="tab"
               aria-controls="v-pills-home"
               aria-selected="true"
-              >
+            >
               <i class="fa fa-address-card-o" aria-hidden="true"></i>
               <span>ประวัตินักศึกษา</span></a
             >
@@ -103,13 +104,13 @@
             aria-labelledby="v-pills-messages-tab"
           >
           </MidtermFinal>
-          <MidtermFinal
+          <CalendarTest
             class="tab-pane fade"
             id="v-pills-settings"
             role="tabpanel"
             aria-labelledby="v-pills-settings-tab"
           >
-          </MidtermFinal>
+          </CalendarTest>
         </div>
       </div>
     </div>
@@ -117,18 +118,34 @@
 </template>
 
 <script>
-import ProfileData from "../components/Profile_data.vue"
-import StudyResult from "../components/StudyResult.vue"
-import MidtermFinal from "../components/CalendarEvents.vue"
+import ProfileData from "../components/Profile_data.vue";
+import StudyResult from "../components/StudyResult.vue";
+import MidtermFinal from "../components/MidtermandFinal.vue"
+import CalendarTest from "../components/TuiCalendar.vue";
+import Axios from "axios";
 
 export default {
   name: "profile_user",
+  data() {
+    return {
+      data_student: {}
+    }
+
+  },
   components: {
     ProfileData,
     StudyResult,
     MidtermFinal,
+    CalendarTest,
   },
-  methods: {
+  methods: {},
+  created() {
+    Axios.post(this.$store.getters.getApi + "api/getinfostudent/", {
+      token: this.$store.getters.getToken,
+    }).then((res1) => {
+      this.data_student = res1.data.student[0];
+      console.log(this.data_student)
+    });
   },
 };
 </script>
@@ -144,7 +161,9 @@ Licensed under MIT
 .profile {
   margin: 20px 0;
 }
-
+.profile-name {
+  font-size: 24px;
+}
 /* Profile sidebar */
 .profile-sidebar {
   padding: 20px 0 10px 0;
@@ -154,11 +173,11 @@ Licensed under MIT
 .profile-userpic img {
   float: none;
   margin: 0 auto;
-  width: 75%;
-  height: 75%;
+  width: 70%;
+  height: 70%;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
+  border-radius: 15% !important;
 }
 
 .profile-usertitle {

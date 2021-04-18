@@ -6,34 +6,48 @@
           <h3 class="head-profile">
             <i class="fa fa-user" aria-hidden="true"></i>ข้อมูลนักศึกษา
           </h3>
-          <p>รหัสนักศึกษา: <span class="data-backend">07600443</span></p>
           <p>
-            เลขบัตรประชาชน: <span class="data-backend">1-5299-00989-x-xx</span>
+            รหัสนักศึกษา:
+            <span class="data-backend">{{ this.students.id_student }}</span>
           </p>
           <p>
-            วัน/เดือน/ปีเกิด: <span class="data-backend">10/เมษายน/2542</span>
+            เลขบัตรประชาชน:
+            <span class="data-backend">{{ this.students.citizen_id }}</span>
           </p>
-          <p>ชื่อ: <span class="data-backend">ชนัฐฎา รูปงาม</span></p>
-          <p>คณะ: <span class="data-backend">วิทยาศาสตร์</span></p>
-          <p>หลักสูตร: <span class="data-backend">วิทยาการคอมพิวเตอร์</span></p>
-          <p>วิทยาเขต: <span class="data-backend">พระราชวังสนามจันทร์</span></p>
-          <p>ระดับการศึกษา: <span class="data-backend">ปริญญาตรี</span></p>
+          <p>
+            วัน/เดือน/ปีเกิด:
+            <span class="data-backend">{{ this.students.birthday }}</span>
+          </p>
+          <p>
+            ชื่อ:
+            <span class="data-backend">{{
+              this.students.student_name + " " + this.students.student_surname
+            }}</span>
+          </p>
+          <p>
+            คณะ: <span class="data-backend">{{ this.students.faculty }}</span>
+          </p>
+          <p>
+            หลักสูตร:
+            <span class="data-backend">{{ this.students.deparment }}</span>
+          </p>
+          <p>
+            วิทยาเขต:
+            <span class="data-backend">{{ this.students.campus }}</span>
+          </p>
+          <p>
+            ระดับการศึกษา:
+            <span class="data-backend">{{
+              this.students.level_education
+            }}</span>
+          </p>
           <p>
             ชื่อปริญญา:
-            <span class="data-backend"
-              >วิทยาศาสตร์บัณฑิต(วท.บ.) วิทยาการคอมพิวเตอร์</span
-            >
+            <span class="data-backend">{{ this.students.name_education }}</span>
           </p>
-          <p>ปีการศึกษาที่เข้า: <span class="data-backend">2560</span></p>
-          <p>สนาภาพ: <span class="data-backend">สถานะปกติ</span></p>
           <p>
-            อาจารย์ที่ปรึกษา:
-            <span class="data-backend"
-              >ผู้ช่วยศาสตราจารย์ ดร.ทัศนวรรณ ศูนย์กลาง</span
-            >
+            อีเมลล์: <span class="data-backend">{{ this.students.email }}</span>
           </p>
-          <p>อีเมลล์: <span class="data-backend">mp_xxx@hotmail.com</span></p>
-          <p>เบอร์โทรศัพท์: <span class="data-backend">098-247-xxxx</span></p>
         </div>
         <div class="edu">
           <h3><i class="fa fa-graduation-cap"></i>ประวัติการศึกษา</h3>
@@ -61,10 +75,23 @@
 
 <script>
 import ChartPie from "./Charts_study";
+import Axios from "axios";
 export default {
   name: "profile_data",
   components: {
     ChartPie,
+  },
+  data() {
+    return {
+      students: [],
+    };
+  },
+  created() {
+    Axios.post(this.$store.getters.getApi + "api/getinfostudent/", {
+      token: this.$store.getters.getToken,
+    }).then((res1) => {
+      this.students = res1.data.student[0];
+    });
   },
 };
 </script>

@@ -6,9 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     api : "http://127.0.0.1:8000/",
-    login : localStorage.getItem('login')||false,
-    session_status : localStorage.getItem('session')||null,
-    token : localStorage.getItem('token')||null
+    login : localStorage.getItem('login')||"",
+    session_status : localStorage.getItem('session')||"",
+    token : localStorage.getItem('token')||""
   },
   mutations: {
     setLogin(state, value) {

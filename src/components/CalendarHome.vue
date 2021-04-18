@@ -1,6 +1,6 @@
 <template>
-<div class="card-calendar">
-  <div class="container-fluid">
+<div class="card-calendar container">
+  <div class="container">
     <div class="row">
       <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
         <h1 class="cal">ปฏิทินนักศึกษา</h1>
@@ -28,7 +28,7 @@
             <div class="smalltext">Seconds</div>
           </div>
           <h4 class="text-cal">
-            ถึง <span class="text-span">{{ event_data }}</span>
+            ถึง <span class="text-span" >{{ this.event_data }}</span>
           </h4>
         </div>
       </div>
@@ -46,7 +46,7 @@
                 <th class="th-sm1">วันที่</th>
               </tr>
             </thead>
-            <tbody id="tableList">
+            <tbody id="tableList" >
               <tr
                 v-for="date in dates"
                 :key="date.no"
@@ -71,7 +71,7 @@ export default {
   name: 'calendar-data',
   data() {
     return {
-      event_data: "เปิดให้ลงทะเบียน",
+      event_data: "",
       dates: [
         {
           no: 1,
@@ -118,6 +118,7 @@ export default {
     };
   },
   created() {
+    //this.checkDate();
     this.end_dates = this.dates[0].start_date;
 
   },
@@ -141,6 +142,7 @@ export default {
       },
 
        initializeClock() {
+        
         const clock = document.getElementById("clockdiv");
         const daysSpan = clock.querySelector(".days");
         const hoursSpan = clock.querySelector(".hours");
@@ -239,9 +241,7 @@ h2 {
   background: #f37f5f;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 2px 10px #f37f5f, 3px 5px 20px #e28d76;
-  width: 1300px;
-  height: 320px;
+  box-shadow: 0 2px 10px #f37f5f, 3px 5px 20px #e28d76; 
   position: relative;
   display: flex;
   align-items: flex-end;

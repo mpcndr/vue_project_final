@@ -5,7 +5,7 @@
         <div class="donut-grade bigger">
           <div class="pie-wrapper">
             <span class="label">
-              <span class="grade">{{ percent_1 }}</span>
+              <span class="grade">{{ 0 }}</span>
             </span>
             <div class="pie">
               <div class="left-side half-circle"></div>
@@ -21,7 +21,6 @@
           <div class="pie-wrapper">
             <span class="label">
               <span class="num">{{ percent_2 }}</span>
-              <span class="smaller">%</span>
             </span>
             <div class="pie">
               <div class="left-side half-circle"></div>
@@ -54,13 +53,14 @@
 
 <script>
 import $ from "jquery";
+import Axios from "axios";
 export default {
   name: "chartpie",
   data: function() {
     return {
-      percent_1: 2.42,
-      percent_2: 94,
-      percent_3: 36,
+      percent_1: 0,
+      percent_2: 0,
+      percent_3: 0,
     };
   },
   methods: {
@@ -156,7 +156,8 @@ export default {
         var percent = $(el)
           .find(".num")
           .text();
-        percent = Math.round(percent);
+        var p = (percent / 137) * 100;
+        percent = Math.round(p);
         if (percent > 100) {
           percent = 100;
         } else if (percent < 0) {
@@ -231,8 +232,14 @@ export default {
       }
     },
   },
-  mounted: function() {
-    this.Chart_pi();
+  created() {
+    Axios.post(this.$store.getters.getApi + "api/getinfostudent/", {
+      token: this.$store.getters.getToken,
+    }).then((res1) => {
+      this.percent_1 = res1.data.student[0].gpax;
+      this.percent_2 = res1.data.student[0].credit;
+      this.Chart_pi();
+    });
   },
 };
 </script>

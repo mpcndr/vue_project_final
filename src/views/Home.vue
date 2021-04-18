@@ -35,7 +35,7 @@
       
       <CalendarHome/>
       
-    <div class="card-event">
+    <div class="card-event container">
       <NewsEvent/>
     </div>
     
@@ -73,8 +73,6 @@ export default {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 2px 10px #f5e0da, 3px 5px 20px #e28d76;
-  width: 1300px;
-  height: 500px;
   position: relative;
   display: flex;
   align-items: flex-end;

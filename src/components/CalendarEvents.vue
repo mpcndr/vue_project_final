@@ -1,11 +1,14 @@
 <template>
-  <FullCalendar ref="fullCalendar" :options="calendarOptions" />
+  <div class="calendar" style="width: 100%; display: inline-block;">
+    <full-calendar ref="fullCalendar" :options="calendarOptions"></full-calendar>
+  </div>
 </template>
 
 <script>
 import FullCalendar from "@fullcalendar/vue";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import listPlugin from "@fullcalendar/list";
 export default {
   name: "calendar-event",
   components: {
@@ -23,25 +26,42 @@ export default {
   data() {
     return {
       calendarOptions: {
-        plugins: [dayGridPlugin, interactionPlugin],
-        initialView: "dayGridMonth",
+        plugins: [dayGridPlugin, interactionPlugin, listPlugin],
+        initialView: ["listWeek"],
+        timeZone: "UTC",
         dateClick: this.handleDateClick,
-        events: [
-          { title: 'event 1', date: '2019-04-01' },
-          { title: 'event 2', date: '2019-04-02' }
-        ]
+        views: {
+          listDay: { buttonText: "list day" },
+          listWeek: { buttonText: "list week" },
+          listMonth: { buttonText: "list month" },
+        },
+        header: {
+          left: "title",
+          center: "",
+          right: "listDay,listWeek,listMonth",
+        },
       },
+      events: [
+        {
+          id: "2302",
+          title: "XXX",
+          start: "16/4/2021 12:00:00 AM",
+          end: "17/4/2021 12:00:00 AM",
+          allDay: true,
+          url: "xxx",
+        },
+      ],
     };
   },
-  methods: {
-    handleDateClick: function(arg) {
-      alert('date click! ' + arg.dateStr)
-    }
-  },
+  methods: {},
 };
 </script>
 
 <style scoped>
+.calendar{
+  font-family: "Kanit";
+  color: rgb(155, 41, 41);
+}
 h2 {
   margin: 0;
   font-size: 16px;

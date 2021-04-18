@@ -33,20 +33,54 @@
               class="nav-link"
               >หลักสูตร</router-link
             >
-            <span v-if="this.$store.getters.login">
-              <a @click="logout">ออกจากระบบ</a>
-            </span>
-            <span v-else>
-              <div
-              @click="Login()"
-              id="text-underline"
-              class="nav-link"
-              style="cursor: pointer;"
-            >
+            <!-- <router-link to="/login" id="text-underline" class="nav-link">
               เข้าสู่ระบบ
+            </router-link> -->
+            <div v-if="this.$store.getters.getLogin === 'true'">
+              <div class="dropdown show">
+                <a
+                  class="btn btn-danger dropdown-toggle"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {{ this.username }}
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item"
+                    ><router-link
+                      to="/profile"
+                      style="text-decoration: none; color: #000"
+                      >ข้อมูลส่วนตัว</router-link
+                    ></a
+                  >
+
+                  <div
+                    @click="logOut()"
+                    id="text-underline"
+                    class="nav-link"
+                    style="cursor: pointer;"
+                  >
+                    ออกจากระบบ
+                  </div>
+                </div>
+              </div>
             </div>
-            </span>
-            
+            <div v-else>
+              <div
+                @click="Login()"
+                id="text-underline"
+                class="nav-link"
+                style="cursor: pointer;"
+              >
+                เข้าสู่ระบบ
+              </div>
+            </div>
+
             <!-- <button
               type="button"
               class="btn btn-danger"
@@ -56,25 +90,6 @@
             <router-link to="/profile" style="text-decoration: none; color: #fff">เข้าสู่ระบบ</router-link>
               
             </button> -->
-
-            <div class="dropdown show">
-              <a
-                class="btn btn-danger dropdown-toggle"
-                href="#"
-                role="button"
-                id="dropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                ชนัฐฎา รูปงาม
-              </a>
-
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item"><router-link to="/profile" style="text-decoration: none; color: #000">ข้อมูลส่วนตัว</router-link></a>
-                <a class="dropdown-item" href="">ออกจากระบบ</a>
-              </div>
-            </div>
           </ul>
         </div>
       </div>
@@ -91,6 +106,7 @@ export default {
     return {
       session_key: "",
       username: "",
+
     };
   },
   methods: {
@@ -116,7 +132,7 @@ export default {
     },
     async Login() {
       this.session_key = this.sessionRandom();
-      this.$store.dispatch("setSession", this.session_key)
+      this.$store.dispatch("setSession", this.session_key);
       await Axios.get(
         "http://127.0.0.1:8000/api/ssoapi/?url=https://127.0.0.1:8080/&session=" +
           this.session_key
@@ -127,35 +143,47 @@ export default {
     },
     ValidateToken() {
       
-      if (this.$store.getters.getToken != null) {
-        console.log(this.$store.getters.getToken);
+      if (this.$store.getters.getToken != "") {
+        //console.log(this.$store.getters.getToken);
+        //alert("1")
         Axios.post(this.$store.getters.getApi + "api/validatetoken/", {
-          "token": this.$store.getters.getToken,
+          token: this.$store.getters.getToken,
         }).then((res) => {
           if (res.data.state == "200") {
-            this.$store.dispatch("setLogin", true)
-            alert("yeah")
+            this.$store.dispatch("setLogin", 'true');
+            //alert("-----> " + this.$store.getters.getLogin);
             Axios.post(this.$store.getters.getApi + "api/getuser/", {
-              "token": this.$store.getters.getToken,
+              token: this.$store.getters.getToken,
             }).then((res1) => {
-              this.username = res1.data.id_user;
+              this.username = res1.data.name;
             });
           }
         });
       }
     },
+    logOut() {
+      this.$store.dispatch("setToken", "");
+      this.$store.dispatch("setLogin", "");
+      this.$store.dispatch("setSession", "");
+      //alert(this.$store.getters.getSession)
+      this.$router.push({ path: "/" });
+      location.reload();
+    },
   },
   async created() {
     //
+    //alert("--------------------------------------------->" +this.$store.getters.getLogin)
     await this.ValidateToken();
-    if (this.$store.getters.getSession != null) {
+    // alert(this.$store.getters.getSession )
+    if (this.$store.getters.getSession != "") {
+   //   alert("2")
       console.log("-->" + this.$store.getters.getSession);
       Axios.post(this.$store.getters.getApi + "api/sessiontotoken/", {
-        "session": this.$store.getters.getSession,
+        session: this.$store.getters.getSession,
       }).then((res) => {
-        
+       // alert("3")
         this.$store.dispatch("setToken", res.data.token);
-        console.log("********************"+ res.data.token);
+        console.log("********************" + res.data.token);
         this.ValidateToken();
       });
     }
