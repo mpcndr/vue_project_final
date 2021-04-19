@@ -416,7 +416,7 @@ export default {
 
       myDiagram.undoManager.isEnabled = true;
 
-      myDiagram.isReadOnly = false;
+      myDiagram.isReadOnly = true;
       // groupTemplate data background
       myDiagram.groupTemplate = $(
         go.Group,

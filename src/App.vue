@@ -133,8 +133,8 @@ export default {
     async Login() {
       this.session_key = this.sessionRandom();
       this.$store.dispatch("setSession", this.session_key);
-      await Axios.get(
-        "http://127.0.0.1:8000/api/ssoapi/?url=https://127.0.0.1:8080/&session=" +
+      await Axios.get(this.$store.getters.getApi +
+        "api/ssoapi/?url=https://127.0.0.1:8080/&session=" +
           this.session_key
       ).then((r) => {
         console.log(r + "dddd");

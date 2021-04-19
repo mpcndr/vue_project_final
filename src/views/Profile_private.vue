@@ -104,13 +104,13 @@
             aria-labelledby="v-pills-messages-tab"
           >
           </MidtermFinal>
-          <CalendarTest
+          <!-- <CalendarTest
             class="tab-pane fade"
             id="v-pills-settings"
             role="tabpanel"
             aria-labelledby="v-pills-settings-tab"
           >
-          </CalendarTest>
+          </CalendarTest> -->
         </div>
       </div>
     </div>
@@ -120,8 +120,8 @@
 <script>
 import ProfileData from "../components/Profile_data.vue";
 import StudyResult from "../components/StudyResult.vue";
-import MidtermFinal from "../components/MidtermandFinal.vue"
-import CalendarTest from "../components/TuiCalendar.vue";
+import MidtermFinal from "../components/CalendarEvents.vue"
+// import CalendarTest from "../components/TuiCalendar.vue";
 import Axios from "axios";
 
 export default {
@@ -136,7 +136,7 @@ export default {
     ProfileData,
     StudyResult,
     MidtermFinal,
-    CalendarTest,
+    // CalendarTest,
   },
   methods: {},
   created() {

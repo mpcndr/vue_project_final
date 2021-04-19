@@ -180,6 +180,7 @@ export default {
         //   })
         // }
       });
+      myDiagram.isReadOnly = false;
 
       function makeLayout(horiz) {
         // a Binding conversion function
@@ -259,11 +260,11 @@ export default {
           mouseDragLeave: function(e, grp) {
             highlightGroup(e, grp, false);
           },
-          computesBoundsAfterDrag: true,
+          computesBoundsAfterDrag: false,
           // when the selection is dropped into a Group, add the selected Parts into that Group;
           // if it fails, cancel the tool, rolling back any changes
 
-          handlesDragDropForMembers: true, // don't need to define handlers on member Nodes and Links
+          handlesDragDropForMembers: false, // don't need to define handlers on member Nodes and Links
           // Groups containing Groups lay out their members horizontally
           layout: makeLayout(false),
           isSubGraphExpanded: true

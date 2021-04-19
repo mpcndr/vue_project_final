@@ -1,76 +1,78 @@
 <template>
-<div class="card-calendar container">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
-        <h1 class="cal">ปฏิทินนักศึกษา</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
-        <!-- <h4>Countdown Time</h4> -->
-        <div id="clockdiv">
-          <h2>เหลือเวลา</h2>
-          <div>
-            <span class="days"></span>
-            <div class="smalltext">Days</div>
-          </div>
-          <div>
-            <span class="hours"></span>
-            <div class="smalltext">Hours</div>
-          </div>
-          <div>
-            <span class="minutes"></span>
-            <div class="smalltext">Minutes</div>
-          </div>
-          <div>
-            <span class="seconds"></span>
-            <div class="smalltext">Seconds</div>
-          </div>
-          <h4 class="text-cal">
-            ถึง <span class="text-span" >{{ this.event_data }}</span>
-          </h4>
+  <div class="card-calendar container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+          <h1 class="cal">ปฏิทินนักศึกษา</h1>
         </div>
       </div>
-      <div class="col">
-        <div class="table-responsive">
-          <table
-            id="dtBasicExample"
-            class="table table-dark table-bordered table-sm table-hover"
-            cellspacing="0"
-            width="100%"
-          >
-            <thead>
-              <tr>
-                <th class="th-sm1">รายการ</th>
-                <th class="th-sm1">วันที่</th>
-              </tr>
-            </thead>
-            <tbody id="tableList" >
-              <tr
-                v-for="date in dates"
-                :key="date.no"
-                v-on:click="selectCalendar(date)"
-              >
-                <td>
-                  {{ date.event }}
-                </td>
-                <td>{{ date.date_start }} - {{ date.date_end }}</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="row">
+        <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+          <!-- <h4>Countdown Time</h4> -->
+          <div id="clockdiv">
+            <h2>เหลือเวลา</h2>
+            <div>
+              <span class="days"></span>
+              <div class="smalltext">Days</div>
+            </div>
+            <div>
+              <span class="hours"></span>
+              <div class="smalltext">Hours</div>
+            </div>
+            <div>
+              <span class="minutes"></span>
+              <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+              <span class="seconds"></span>
+              <div class="smalltext">Seconds</div>
+            </div>
+            <h4 class="text-cal">
+              ถึง <span class="text-span">{{ this.event_data }}</span>
+            </h4>
+          </div>
+        </div>
+        <div class="col">
+          <div class="table-responsive">
+            <table
+              id="dtBasicExample"
+              class="table table-dark table-bordered table-sm table-hover"
+              cellspacing="0"
+              width="100%"
+            >
+              <thead>
+                <tr>
+                  <th class="th-sm1">รายการ</th>
+                  <th class="th-sm1">วันที่</th>
+                </tr>
+              </thead>
+              <tbody id="tableList">
+                <tr
+                  v-for="date in dates"
+                  :key="date.no"
+                  :id="'date'+date.no"
+                  v-on:click="selectCalendar(date)"
+                >
+                  <td id="chk">
+                    {{ date.event }}
+                  </td>
+                  <td>{{ date.date_start }} - {{ date.date_end }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'calendar-data',
+  name: "calendar-data",
   data() {
     return {
+      totals: 0,
       event_data: "",
       dates: [
         {
@@ -79,7 +81,7 @@ export default {
           date_end: "18 เม.ย. 2564 23:59 น.",
           event: "เปิดให้ลงทะเบียน",
           start_date: "2021-04-12T08:30:00Z",
-          end_date: "2021-04-18T23:59:59Z"
+          end_date: "2021-04-18T23:59:59Z",
         },
         {
           no: 2,
@@ -87,7 +89,7 @@ export default {
           date_end: "26 เม.ย. 2564 16:30 น",
           event: "ช่วงวันทำการเพิ่ม/ถอน",
           start_date: "2021-04-19T00:00:00Z",
-          end_date: "2021-04-12T23:59:59Z"
+          end_date: "2021-04-12T23:59:59Z",
         },
         {
           no: 3,
@@ -95,7 +97,7 @@ export default {
           date_end: "20 มิ.ย. 2564 16:30 น.",
           event: "วันเปิดภาคเรียน",
           start_date: "2021-04-19T08:30:00Z",
-          end_date: "2021-06-20T16:30:00Z"
+          end_date: "2021-06-20T16:30:00Z",
         },
         {
           no: 4,
@@ -103,7 +105,7 @@ export default {
           date_end: "26 พ.ค. 2564 16:30 น.",
           event: "สอบกลางภาค",
           start_date: "2021-05-03T08:30:00Z",
-          end_date: "2021-05-26T16:30:00Z"
+          end_date: "2021-05-26T16:30:00Z",
         },
         {
           no: 5,
@@ -111,78 +113,104 @@ export default {
           date_end: "19 มิ.ย. 2564 16:30 น.",
           event: "สอบปลายภาค",
           start_date: "2021-06-14T08:30:00Z",
-          end_date: "2021-06-19T16:30:00Z"
+          end_date: "2021-06-19T16:30:00Z",
         },
       ],
       date: [],
     };
   },
   created() {
-    //this.checkDate();
-    this.end_dates = this.dates[0].start_date;
-
+    
+    // const day = new Date();
+    // for (var i = 0; i < this.dates.length; i++) {
+    //   if(Date.parse(day) < Date.parse(new Date(this.dates[i].start_date))){
+    //     this.end_dates = this.dates[i].start_date;
+    //     this.event_data = this.dates[i].event;
+    //     break;
+    //   }
+    //   else {
+    //     document.getElementById('date'+this.dates[i].no).style = "background: #fff"
+    //   }
+    // }
   },
+
   methods: {
     // countdownTime: function() {
 
-      getTimeRemaining(endtime) {
-        const total = Date.parse(endtime) - Date.parse(new Date());
-        const seconds = Math.floor((total / 1000) % 60);
-        const minutes = Math.floor((total / 1000 / 60) % 60);
-        const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-        const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    getTimeRemaining(endtime) {
+      const total = Date.parse(endtime) - Date.parse(new Date());
+      const seconds = Math.floor((total / 1000) % 60);
+      const minutes = Math.floor((total / 1000 / 60) % 60);
+      const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+      const days = Math.floor(total / (1000 * 60 * 60 * 24));
+      this.totals = total;
+      return {
+        total,
+        days,
+        hours,
+        minutes,
+        seconds,
+      };
+    },
 
-        return {
-          total,
-          days,
-          hours,
-          minutes,
-          seconds,
-        };
-      },
+    initializeClock() {
+      const clock = document.getElementById("clockdiv");
+      const daysSpan = clock.querySelector(".days");
+      const hoursSpan = clock.querySelector(".hours");
+      const minutesSpan = clock.querySelector(".minutes");
+      const secondsSpan = clock.querySelector(".seconds");
 
-       initializeClock() {
-        
-        const clock = document.getElementById("clockdiv");
-        const daysSpan = clock.querySelector(".days");
-        const hoursSpan = clock.querySelector(".hours");
-        const minutesSpan = clock.querySelector(".minutes");
-        const secondsSpan = clock.querySelector(".seconds");
+      // function updateClock() {
+      const t = this.getTimeRemaining(this.end_dates);
+      daysSpan.innerHTML = t.days;
+      hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
+      minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
+      secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
 
-        // function updateClock() {
-          const t = this.getTimeRemaining(this.end_dates);
-          daysSpan.innerHTML = t.days;
-          hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
-          minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
-          secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
+      if (t.total <= 0) {
+        clearInterval(this.timeinterval);
+        this.timeinterval = null;
+      }
+      // }
 
-          if (t.total <= 0) {
-            clearInterval(this.timeinterval);
-            this.timeinterval = null;
-          }
-        // }
+      // updateClock();
+      // const timeinterval = setInterval(updateClock, 10);
+    },
 
-        // updateClock();
-        // const timeinterval = setInterval(updateClock, 10);
-      },
-
-      // const deadline = new Date(
-      //   Date.parse(new Date()) + 18 * 24 * 60 * 60 * 1000
-      // );
-      // initializeClock("clockdiv", deadline);
+    // const deadline = new Date(
+    //   Date.parse(new Date()) + 18 * 24 * 60 * 60 * 1000
+    // );
+    // initializeClock("clockdiv", deadline);
 
     // },
     selectCalendar(event) {
+
       clearInterval(this.timeinterval);
-       this.event_data = event.event;
-       this.end_dates = event.start_date;
-       this.timeinterval = null;
-       this.timeinterval = setInterval(this.initializeClock, 100);
-    }
+      this.event_data = event.event;
+      this.end_dates = event.start_date;
+      this.timeinterval = null;
+      this.timeinterval = setInterval(this.initializeClock, 100);
+    },
   },
   mounted: function() {
     this.timeinterval = setInterval(this.initializeClock, 100);
+     const day = new Date();
+    for (var i = 0; i < this.dates.length; i++) {
+      if(Date.parse(day) < Date.parse(new Date(this.dates[i].start_date))){
+        this.end_dates = this.dates[i].start_date;
+        this.event_data = this.dates[i].event;
+        break;
+      }
+      else {
+        document.getElementById('date'+this.dates[i].no).style = "pointer-events: none; text-decoration: line-through;"
+      }
+    }
+    
   },
+  destroyed() {
+    clearInterval(this.timeinterval)
+  }
+
 };
 </script>
 
@@ -241,11 +269,10 @@ h2 {
   background: #f37f5f;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 2px 10px #f37f5f, 3px 5px 20px #e28d76; 
+  box-shadow: 0 2px 10px #f37f5f, 3px 5px 20px #e28d76;
   position: relative;
   display: flex;
   align-items: flex-end;
-  padding: 0px auto ;
+  padding: 0px auto;
 }
-
 </style>
